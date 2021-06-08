@@ -4,7 +4,7 @@ Este proyecto consiste en crear una página de e-commerce para la marca de joyer
 
 -----DEDSCRIPCION DE LA MARCA AQUÍ-----
 
-Para la marca Brillo de Luna desarollaremos una tienda online catálogo donde se mostrarán los productos diponibles; este tipo de tienda online cuenta con un catálogo de productos con información detallada sobre los mismos, pero no permite realizar pedidos online directamente, sino que proporciona información sobre el procedimiento que el cliente debe seguir para poder realizar un pedido, ya sea a través del teléfono o e-mail, así como las formas de pago disponibles.
+Para la marca Brillo de Luna desarrollaremos una tienda online catálogo donde se mostrarán los productos diponibles; este tipo de tienda online cuenta con un catálogo de productos con información detallada sobre los mismos, pero no permite realizar pedidos online directamente, sino que proporciona información sobre el procedimiento que el cliente debe seguir para poder realizar un pedido, ya sea a través del teléfono o e-mail, así como las formas de pago disponibles.
 
 Ventajas
 
