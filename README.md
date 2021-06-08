@@ -2,7 +2,7 @@
 
 Este proyecto consiste en crear una página de e-commerce para la marca de joyería Brillo de Luna.
 
------DEDSCRIPCION DE LA MARCA AQUÍ-----
+Brillo de Luna una marca es creada por una emprendedora mexicana cachanilla en donde puedes encontrar; accesorios, joyería de acero inoxidable, oro laminado y bronce. Creemos que un accesorio puede elevar al máximo las posibilidades de combinar un outfit y hacerlo 1000% versátil, de esta manera puedes lucir totalmente diferente desde el enfoque que desees proyectar; divertido, clásico, elegante.
 
 Para la marca Brillo de Luna desarrollaremos una tienda online catálogo donde se mostrarán los productos diponibles; este tipo de tienda online cuenta con un catálogo de productos con información detallada sobre los mismos, pero no permite realizar pedidos online directamente, sino que proporciona información sobre el procedimiento que el cliente debe seguir para poder realizar un pedido, ya sea a través del teléfono o e-mail, así como las formas de pago disponibles.
 
