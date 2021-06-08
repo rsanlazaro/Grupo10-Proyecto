@@ -18,3 +18,12 @@ INSPIRACIÓN:
 - https://canvaslab.com/collections/ninos
 - https://www.lolaflora.com.mx/
 - https://cristaljoyas.com/
+
+INFORMACIÓN INTEGRANTES:
+
+Rafael:
+
+Laura:
+Egresada de la carrera de Ingeniería en computación de la Universidad Autónoma de Baja California, eh realizado distintos proyectos de aplicaciones web, principalmente participando en el desarrollo del front-end y diseño gráfico. Cuento conocimientos dde HTML,CSS,PHP y Vue. 
+
+Alejandra:
