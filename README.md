@@ -27,3 +27,4 @@ Laura:
 Egresada de la carrera de Ingeniería en computación de la Universidad Autónoma de Baja California, eh realizado distintos proyectos de aplicaciones web, principalmente participando en el desarrollo del front-end y diseño gráfico. Cuento conocimientos dde HTML,CSS,PHP y Vue. 
 
 Alejandra:
+Lic. en biotecnología genómica por la Universidad Autónoma de Nuevo León. Actualmente estoy terminando una maestría en ciencias biomédicas con enfoque en bioinformática. Tengo experiencia con programción en R y básica de java. 
