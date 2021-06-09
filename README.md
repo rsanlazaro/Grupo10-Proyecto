@@ -25,7 +25,7 @@ Rafael:
 Ingeniero biomédico egresado del Instituto Politécnico Nacional, con experiencia en lenguajes de programación como Python y C++. Actualmente, estoy estudiando la Maestría en Ciencias de la Ingeniería en el Instituto Tecnológico de Monterrey.
 
 Laura:
-Egresada de la carrera de Ingeniería en computación de la Universidad Autónoma de Baja California, eh realizado distintos proyectos de aplicaciones web, principalmente participando en el desarrollo del front-end y diseño gráfico. Cuento conocimientos dde HTML,CSS,PHP y Vue. 
+Egresada de la carrera de Ingeniería en computación de la Universidad Autónoma de Baja California, eh realizado distintos proyectos de aplicaciones web, principalmente participando en el desarrollo del front-end y diseño gráfico. Cuento con conocimientos de HTML,CSS,PHP y Vue. 
 
 Alejandra:
 Lic. en biotecnología genómica por la Universidad Autónoma de Nuevo León. Actualmente estoy terminando una Maestría en Ciencias Biomédicas en el TEC con enfoque en bioinformática. Tengo experiencia con programción en R y un poco de java. 
