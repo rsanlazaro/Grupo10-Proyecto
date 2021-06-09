@@ -1,4 +1,4 @@
-# Grupo10-Proyecto
+# grupo_10_BrilloDeLuna
 
 Este proyecto consiste en crear una página de e-commerce para la marca de joyería Brillo de Luna.
 
