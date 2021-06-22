@@ -1,0 +1,29 @@
+:root{
+    --yellow: #eac921;
+    --blue: #03264C;
+    --ligth-blue: #1259c3;
+    --dark-gray: #666;
+    --light-gray: #ebebeb;
+    --green: #39b54a;   
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+header,
+main,
+footer{
+    margin: 5%;
+}
+
+.header-1,
+.header-2,
+.header-2-2,
+.cart-products,
+.recommend-products{
+    display: flex;
+    justify-content: space-around;
+}
