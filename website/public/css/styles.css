@@ -11,6 +11,8 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: large;
 }
 
 header,
@@ -40,14 +42,8 @@ footer{
     flex-grow: 1;
 }
 
-
 .header-2{
     padding: 5%;
-    flex-grow: 1;
-}
-
-.header-2-2{
-    flex-grow: 5;
 }
 
 header{
@@ -65,14 +61,32 @@ i{
     padding-right: 2%;
 }
 
+header .header-2 .options{
+    flex-grow: 1;
+}
+
+header .header-2 .header-2-2{
+    flex-grow: 4;
+}
+
+.header-2-2 .username{
+    flex-grow: 1;
+}
+
+.header-2-2 .shop{
+    flex-grow: 1;
+}
+
+.header-2-2 .options{
+    flex-grow: 1;
+}
+
+/* CART */
+
 main{
     background-color: white;
     padding: 5%;
     color: black;
-}
-
-main .container{
-    padding-bottom: 5%;
 }
 
 main .product{
@@ -82,12 +96,22 @@ main .product{
     padding-bottom: 2%;
 }
 
+main .sum-prices{
+    padding-bottom: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+main .price-col{
+    text-align: center;
+}
+
 main .button{
     margin: auto;
     text-align: center;
 }
 
-main button{
+main .button button{
     padding: 2%;
     background-color: var(--yellow);
     color: white;
@@ -100,11 +124,13 @@ main button:hover{
     background-color: var(--yellow-light);
 }
 
-main img{
+main .product .article img{
     width: 20vw;
+    height: 20vw;
+    object-fit: cover;
 }
 
-main .article{
+main .product .article{
     display: flex;
     justify-content: space-between;
     padding-top: 2%;
@@ -116,10 +142,15 @@ main .image{
     padding: 2%;
     flex-grow: 1;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
-main .description{
+main form input{
+    width: 2vw;
+    height: 2vw;
+}
+
+main .product .article .description{
     padding: 2%;
     flex-grow: 7;
     display: flex;
@@ -132,7 +163,7 @@ main .description{
 }
 
 .description .quantity{
-    padding-bottom: 40%;
+    padding-bottom: 15%;
 }
 
 .description .options{
@@ -140,11 +171,144 @@ main .description{
     justify-content: space-between;
 }
 
-main .price{
+main .product .price{
     padding-top: 4%;
     padding-bottom: 4%;
     flex-grow: 1;
     text-align: center;
+}
+
+main .price .discount{
+    padding-top: 5%;
+}
+
+main .price .final-price{
+    padding-top: 5%;
+}
+
+/* PRODUCT DESCRIPTION */
+
+main .container{
+    padding-top: 5%;
+    display: flex;
+}
+
+main .container .photos{
+    flex-grow: 1;
+    display: flex;
+}
+
+main .container .photos .small-photos{
+    display: flex;
+    flex-direction: column;
+}
+
+main .container .photos .small-photos img{
+    width: 7vw;
+    height: 7vw;
+    object-fit: cover;
+    padding-bottom: 10%;
+    padding-right: 10%;
+}
+
+main .container .photos .main-photo img{
+    width: 30vw;
+    height: 30vw;
+    object-fit: cover;
+}
+
+main .container .description{
+    flex-grow: 1;
+}
+
+main .reviews{
+    display: flex;
+    justify-content: space-between;
+}
+
+main .review{
+    padding: 5%;
+}
+
+main .review .user{
+    padding-bottom: 20%;
+    font-weight: 500;
+}
+
+main .review .text{
+    font-size: small;
+}
+
+main .buttons{
+    display: flex;
+    align-items: baseline;
+}
+
+main .container .article{
+    flex-grow: 5;
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+}
+
+main .container .article .upper-article{
+    display: flex;
+    flex-grow: 3;
+}
+
+main .container .article .lower-article{
+    flex-grow: 1;
+}
+
+main .article .upper-article .description{
+    font-size: large;
+    font-weight: 700;
+}
+
+main .article .upper-article .model{
+    font-size: smaller;
+}
+
+main .article .upper-article .price{
+    margin-top: 5%;
+    font-size: large;
+}
+
+main .article .upper-article .discount{
+    font-size: small;
+}
+
+main .article .upper-article form{
+    margin-top: 10%;
+}
+
+main .article .text{
+    flex-grow: 5;
+}
+
+main .article .buttons{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+main .article .lower-article{
+    font-size: medium;
+}
+
+main .buttons button{
+    width: 20vw;
+    padding: 5%;
+    background-color: var(--yellow);
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: background-color 500ms;
+}
+
+main .buttons button:hover{
+    background-color: var(--yellow-light);
 }
 
 footer{
@@ -153,8 +317,26 @@ footer{
     color: var(--gray);
 }
 
-footer .container{
+footer .suggestions{
     display: flex;
     justify-content: space-around;
     margin-top: 5%;
+}
+
+footer .product{
+    text-align: center;
+}
+
+footer .price{
+    padding-top: 10%;
+}
+
+footer .name{
+    padding-top: 5%;
+}
+
+footer img{
+    width: 15vw;
+    height: 15vw;
+    object-fit: cover;
 }
