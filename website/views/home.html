@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<link href="css/homestyle.css" rel="stylesheet">
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	
 </head>
 <body>
 
@@ -17,8 +17,8 @@
 				<input type="text" placeholder="Buscar producto" name="search">
 				<button type="submit"><i class="fa fa-search"></i></button>
 			  </form>
-			  <a href="#"><i class="fa fa-fw fa-user"></i> Cuenta</a>
-			  <a href="#"><i class="fas fa-shopping-cart"></i>Carrito</a>
+			  <a href="#login"><i class="fa fa-fw fa-user"></i> Cuenta</a>
+			  <a href="#cart"><i class="fa fa-shopping-cart"></i>Carrito</a>
 		  </div>
 
 	
@@ -58,32 +58,45 @@
 	<a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
   <br>
-
+<div  style="display: inline-block;">
   <h2>
 	Productos que pueden interesarte
 </h2>
-<div class="suggestions">
-	<div class="product">
-		<img src="/images/img2.jpeg" alt="Producto">
-		<div class="price">$22.00</div>
-		<div class="name">Artículo</div>
-	</div>
-	<div class="product">
-		<img src="/images/img2.jpeg" alt="Producto">
-		<div class="price">$22.00</div>
-		<div class="name">Artículo</div>
-	</div>
-	<div class="product">
-		<img src="/images/img2.jpeg" alt="Producto">
-		<div class="price">$22.00</div>
-		<div class="name">Artículo</div>
-	</div>
+
+<div class="card" style="display: inline-block;">
+	<img src="/images/img6.jpeg" alt="Huggies" style="width:90%">
+	<h1>Huggies</h1>
+	<p class="price">$19.99</p>
+	<p><button>Agregar al Carrito</button></p>
+  </div>
+  <div class="card" style="display: inline-block;">
+	<img src="/images/img7.jpeg" alt="Arracadas" style="width:90%">
+	<h1>Arracadas</h1>
+	<p class="price">$19.99</p>
+	<p><button>Agregar al Carrito</button></p>
+  </div>
+  <div class="card" style="display: inline-block; ">
+	<img src="/images/img5.jpeg" alt="Anillos" style="width:90%">
+	<h1>Anillos</h1>
+	<p class="price">$19.99</p>
+	<p><button>Agregar al Carrito</button></p>
+  </div>
 </div>
+<!--Newsletter-->
+<form action="">
+	<div class="container">
+	  <h2>Suscribete a nuestro Newsletter</h2>
+	</div>
   
- 
+	<div class="container" style="background-color:white ;padding: 10px;">
+	  <input type="text" placeholder="Name" name="name" required>
+	  <input type="text" placeholder="Email address" name="mail" required>
+	  <input type="submit" value="SUSCRIBIRSE">
+	</div>
   
   <!-- Footer -->
-  <footer class="container padding-64 center black xlarge">
+  <footer class="container padding-64 center black xlarge" >
+	<a><i>Siguenos</i></a>
 	<a href="#"><i class="fa fa-facebook-official"></i></a>
 	<a href="#"><i class="fa fa-pinterest-p"></i></a>
 	<a href="#"><i class="fa fa-twitter"></i></a>
