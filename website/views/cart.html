@@ -5,38 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de compras</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <header>
-        <div>
-            <img src="/images/logo-mercado-liebre.svg" alt="Logo">
-            <div class="form" action="#" method="GET">
-                <div class="input">Buscar productos, marcas y más <i class="fa fa-search" id="submit"></i></div>
+        <div class="header-1">
+            <div class="image">
+                <img src="/images/logo-black.jpeg" alt="Logo">
             </div>
-            <div>
+            <div class="form" action="#" method="GET">
+                <div class="input">Buscar <i class="fa fa-search" id="submit"></i></div>
+            </div>
+            <div class="send">
                 Enviar
             </div>
-            <div>
-                Configuración
+            <div class="config">
+                <i class="fas fa-cog"></i>Configuración
             </div>
         </div>
-        <div>
+        <div class="header-2">
             <div>
-                Opciones
+                <i class="fas fa-list"></i> Opciones
             </div>
-            <div>
-                <div>
+            <div class="header-2-2">
+                <div class="username">
                     Nombre de usuario
                 </div>
-                <div>
-                    Opciones
-                </div>
-                <div>
+                <div class="shop">
                     Mis compras
                 </div>
-                <div>
-                    íconos
+                <div class="options">
+                    <i class="far fa-bell"></i>
+                    <i class="fas fa-shopping-cart"></i>
                 </div>
             </div>
         </div>
@@ -45,31 +46,160 @@
         <div>
             Carrito de compras
         </div>
-        <div>
-            <div>
-                Contenedor 1
+        <div class="container">
+            <div class="product">
+                <div class="article">
+                    <div class="image">
+                        <form action="/" method="GET">
+                            <input type="checkbox" name="products" value="Product1">
+                        </form>
+                        <img src="/images/img1.jpeg" alt="Producto">
+                    </div>
+                    <div class="description">
+                        <div class="name">
+                            Artículo 1
+                        </div>
+                        <div class="quantity">
+                            3 disponibles
+                        </div>
+                        <div class="options">
+                            <div>
+                                <form action="/" method="GET">
+                                    <select name="quantity" id="amount">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                    <label for="amount">Cantidad</label>
+                                </form>
+                            </div>
+                            <div>
+                                <a href="#">Eliminar</a>
+                            </div>
+                            <div>
+                                <a href="#">Guardar para más tarde</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="price">
+                    <div class="discount">
+                        Descuento: 0%
+                    </div>
+                    <div class="final-price">
+                        $500.00
+                    </div>
+                </div>
             </div>
-            <div>
-                Contenedor 2
+            <div class="product">
+                <div class="article">
+                    <div class="image">
+                        <form action="/" method="GET">
+                            <input type="checkbox" name="products" value="Product1">
+                        </form>
+                        <img src="/images/img1.jpeg" alt="Producto">
+                    </div>
+                    <div class="description">
+                        <div class="name">
+                            Artículo 2
+                        </div>
+                        <div class="quantity">
+                            3 disponibles
+                        </div>
+                        <div class="options">
+                            <div>
+                                <form action="/" method="GET">
+                                    <select name="quantity" id="amount">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                    <label for="amount">Cantidad</label>
+                                </form>
+                            </div>
+                            <div>
+                                <a href="#">Eliminar</a>
+                            </div>
+                            <div>
+                                <a href="#">Guardar para más tarde</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="price">
+                    <div class="discount">
+                        Descuento: 0%
+                    </div>
+                    <div class="final-price">
+                        $200.00
+                    </div>
+                </div>
             </div>
-            <div>
-                Contenedor 3
+            <div class="product">
+                <div class="article">
+                    <div class="image">
+                        <form action="/" method="GET">
+                            <input type="checkbox" name="products" value="Product1">
+                        </form>
+                        <img src="/images/img1.jpeg" alt="Producto">
+                    </div>
+                    <div class="description">
+                        <div class="name">
+                            Artículo 3
+                        </div>
+                        <div class="quantity">
+                            3 disponibles
+                        </div>
+                        <div class="options">
+                            <div>
+                                <form action="/" method="GET">
+                                    <select name="quantity" id="amount">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                    <label for="amount">Cantidad</label>
+                                </form>
+                            </div>
+                            <div>
+                                <a href="#">Eliminar</a>
+                            </div>
+                            <div>
+                                <a href="#">Guardar para más tarde</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="price">
+                    <div class="discount">
+                        Descuento: 0%
+                    </div>
+                    <div class="final-price">
+                        $1200.00
+                    </div>
+                </div>
             </div>
         </div>
-        <div>
-            Continuar compra
+        <div class="button">
+            <button>Continuar compra</button>
         </div>
     </main>
     <footer>
-        <div>
-            Productos que pueden interesarte
-            <div>
+        Productos que pueden interesarte
+        <div class="container">
+            <div class="product">
                 Producto 1
             </div>
-            <div>
+            <div class="product">
                 Producto 2
             </div>
-            <div>
+            <div class="product">
                 Producto 3
             </div>
         </div>

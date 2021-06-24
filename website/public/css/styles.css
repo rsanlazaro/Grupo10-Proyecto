@@ -1,10 +1,10 @@
 :root{
-    --yellow: #eac921;
-    --blue: #03264C;
-    --ligth-blue: #1259c3;
-    --dark-gray: #666;
-    --light-gray: #ebebeb;
-    --green: #39b54a;   
+    --white: #ffffff;
+    --black: #000000;
+    --gray: #ede9e6;
+    --yellow: #c6a152;
+    --yellow-light: #967a3e;
+    --pink: #c29480;
 }
 
 *{
@@ -16,14 +16,145 @@
 header,
 main,
 footer{
-    margin: 5%;
+    margin: 0;
 }
 
-.header-1,
 .header-2,
 .header-2-2,
 .cart-products,
 .recommend-products{
     display: flex;
     justify-content: space-around;
+    align-items: center;
+}
+
+.header-1{
+    display: flex;
+    align-items: center;
+}
+
+.header-1 .image,
+.header-1 .form,
+.header-1 .send,
+.header-1 .config{
+    flex-grow: 1;
+}
+
+
+.header-2{
+    padding: 5%;
+    flex-grow: 1;
+}
+
+.header-2-2{
+    flex-grow: 5;
+}
+
+header{
+    background-color: black;
+    color: var(--gray);
+    padding: 5%;
+}
+
+header img{
+    width: 10vw;
+}
+
+i{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+main{
+    background-color: white;
+    padding: 5%;
+    color: black;
+}
+
+main .container{
+    padding-bottom: 5%;
+}
+
+main .product{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+main .button{
+    margin: auto;
+    text-align: center;
+}
+
+main button{
+    padding: 2%;
+    background-color: var(--yellow);
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: all 500ms;
+}
+
+main button:hover{
+    background-color: var(--yellow-light);
+}
+
+main img{
+    width: 20vw;
+}
+
+main .article{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    flex-grow: 5;
+}
+
+main .image{
+    padding: 2%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+main .description{
+    padding: 2%;
+    flex-grow: 7;
+    display: flex;
+    flex-direction: column;
+}
+
+.description .name{
+    padding-top: 3%;
+    padding-bottom: 5%;
+}
+
+.description .quantity{
+    padding-bottom: 40%;
+}
+
+.description .options{
+    display: flex;
+    justify-content: space-between;
+}
+
+main .price{
+    padding-top: 4%;
+    padding-bottom: 4%;
+    flex-grow: 1;
+    text-align: center;
+}
+
+footer{
+    padding: 5%;
+    background-color: var(--yellow);
+    color: var(--gray);
+}
+
+footer .container{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5%;
 }
