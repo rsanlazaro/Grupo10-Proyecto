@@ -10,43 +10,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/homestyle.css">
 </head>
 <body>
-    <header>
-        <div class="header-1">
-            <div class="image">
-                <a href="/">
-                    <img src="/images/logo-black.jpeg" alt="Logo">
-                </a>
-            </div>
-            <div class="form" action="#" method="GET">
-                <div class="input">Buscar <i class="fa fa-search" id="submit"></i></div>
-            </div>
-            <div class="send">
-                Enviar
-            </div>
-            <div class="config">
-                <i class="fas fa-cog"></i>Configuración
-            </div>
-        </div>
-        <div class="header-2">
-            <div class="options">
-                <i class="fas fa-list"></i> Opciones
-            </div>
-            <div class="header-2-2">
-                <div class="username">
-                    Nombre de usuario
-                </div>
-                <div class="shop">
-                    Mis compras
-                </div>
-                <div class="options">
-                    <i class="far fa-bell"></i>
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-            </div>
-        </div>
-    </header>
+    <div class="container" style="background-color:white ;padding: 10px;">
+		<img src="images/logo.png" alt="logoBDL" width="70" height="70">
+		<input type="text" placeholder="Buscar producto" name="search">
+		<button type="submit"><i class="fa fa-search"></i></button>
+		<a href="login"><i class="fa fa-fw fa-user"></i> Cuenta</a>
+			  <a href="cart"><i class="fa fa-shopping-cart"></i>Carrito</a>
+	  </div>
+	
+
+	 <!-- Navigation -->
+<nav class="bar black">
+	<a href="#home" class="button bar-item">Home</a>
+	<a href="#todo" class="button bar-item">Todo</a>
+	<a href="#loMasVendido" class="button bar-item">Lo mas Vendido</a>
+	<a href="#ofertas" class="button bar-item">Ofertas</a>
+  </nav>
     <main>
         <h2>
             Descripción del producto
