@@ -158,3 +158,131 @@ footer .container{
     justify-content: space-around;
     margin-top: 5%;
 }
+
+.login-box{
+    width: 280px;
+    height: 350px;
+    background: #c29480;
+    color: #000000;
+    top: 50%;
+    left: 40%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding-top: 60px 10px;
+    margin-top: 10px;         
+ }
+
+.login-box h1{
+    margin-top: 25px;
+    padding:0 0 20px;
+    text-align: center;
+    font-size: 21px;
+}
+
+
+.login-box input{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.login-box input[type= "text"],
+.login-box input[type= "password"]{
+    border-bottom: 1px solid grey;
+    background: white;
+    height:40px;
+    width: 230px;
+    margin-left:25px;
+    border-radius: 4px;
+    border: 1px solid #967a3e;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.login-box input[type="submit"]{
+    height: 40px;
+    width: 230px;
+    margin-top:20px;
+    margin-left:25px;
+    background:black;
+    color: white;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+
+
+.login-box a{
+   font-size: 15px;
+   line-height: 20px;
+   color: white;
+   text-decoration:none;
+   padding:25px;
+}
+
+.login-box a:hover{
+    color: white;
+    text-decoration:underline;
+    }
+
+
+    .form-register{
+        width: 300px;
+        height: 410px;
+        top: 60%;
+        left: 40%;
+        position: absolute;
+        background: #c29480;
+        padding:30px;
+        margin-top: 10px; 
+        border-radius: 4px;
+        color:black;
+        transform: translate(-50%, -50%);    
+     }
+
+    .form-register h4{
+        font-size: 21px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .controls{
+        width:100%;
+        background: white;
+        padding:10px;
+        border-radius: 4px;
+        margin-bottom: 14px;
+        border: 1px solid #967a3e;
+        font-size: 18px;
+    }
+
+    .form-register p{
+        height: 10px;
+        text-align: center;
+        font-size:15px;
+    }
+    
+    .form-register a{
+        color: white;
+        text-decoration:none;
+    }
+    
+    .form-register a:hover{
+        color:white;
+        text-decoration: underline;
+    }
+    
+    .form-register .botons{
+        width:100%;
+        background: black;
+        border: none;
+        padding:12px;
+        color:white;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+
+
