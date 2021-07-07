@@ -10,24 +10,7 @@
 	
 </head>
 <body>
-	<div class="container" style="background-color:white ;padding: 10px;">
-		<a href="\">
-            <img src="images/logo.png" alt="logoBDL" width="70" height="70">
-        </a>
-		<input type="text" placeholder="Buscar producto" name="search">
-		<button type="submit"><i class="fa fa-search"></i></button>
-		<a href="login"><i class="fa fa-fw fa-user"></i> Cuenta</a>
-			  <a href="cart"><i class="fa fa-shopping-cart"></i>Carrito</a>
-	  </div>
-	
-
-	 <!-- Navigation -->
-<nav class="bar black">
-	<a href="#home" class="button bar-item">Home</a>
-	<a href="#todo" class="button bar-item">Todo</a>
-	<a href="#loMasVendido" class="button bar-item">Lo mas Vendido</a>
-	<a href="#ofertas" class="button bar-item">Ofertas</a>
-  </nav>
+	<%- include('./partials/header') %>
   
   <!-- Slideshow container -->
 <div class="slideshow-container">
@@ -91,17 +74,8 @@
 	  <input type="text" placeholder="Email address" name="mail" required>
 	  <input type="submit" value="SUSCRIBIRSE">
 	</div>
-  
-  <!-- Footer -->
-  <footer class="container padding-64 center black xlarge" >
-	<a><i>Siguenos</i></a>
-	<a href="#"><i class="fa fa-facebook-official"></i></a>
-	<a href="#"><i class="fa fa-pinterest-p"></i></a>
-	<a href="#"><i class="fa fa-twitter"></i></a>
-	<a href="#"><i class="fa fa-flickr"></i></a>
-	<a href="#"><i class="fa fa-linkedin"></i></a>
 
-  </footer>
+	<%- include('./partials/footer') %>
   <script>
 	// Automatic Slideshow - change image every 3 seconds
 	var myIndex = 0;
