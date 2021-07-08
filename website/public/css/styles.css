@@ -353,6 +353,7 @@ footer .suggestions{
 }
 
 .login-box input[type= "text"],
+.login-box input[type= "email"],
 .login-box input[type= "password"]{
     border-bottom: 1px solid grey;
     background: white;
@@ -379,11 +380,14 @@ footer .suggestions{
 
 
 .login-box a{
+    display: block;
    font-size: 15px;
    line-height: 20px;
-   color: white;
    text-decoration:none;
    padding:25px;
+
+   text-align: center;
+    color: gray;
 }
 
 .login-box a:hover{
@@ -470,3 +474,41 @@ footer img{
     object-fit: cover;
 }
 >>>>>>> 8af8a853aa9d85cf99c233b67d9c2a48ba7dcd9a
+
+
+/*Alejandra_Register*/
+.login-btn{
+    width: 200px;
+
+}
+.t_form{
+    text-align: left;
+    background-color: #eadeff;
+    margin-top: 20px;
+    margin-left: 60px;
+    padding-right: 15px;
+}
+.h4_form{
+    margin-left:25px;
+}
+
+.login-btn:focus {
+    border: 1px solid #ce51df !important;
+    border-color: rgba(47,135,170, 0.4);
+    background-color: #f6fbff !important;
+    outline: 0;
+    outline: thin dotted \9;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(47 135 170 / 40%);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(47,135,170,.4);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(47 135 170 / 40%);
+}
+.login-box input[type="submit"]:hover {
+    height: 40px;
+    width: 230px;
+    margin-top: 20px;
+    margin-left: 25px;
+    background: rgb(90, 90, 90);
+    color: white;
+    font-size: 18px;
+    border-radius: 4px;
+}

@@ -19,7 +19,7 @@
     <input type="text" placeholder="Buscar producto" name="search">
 		<button type="submit"><i class="fa fa-search"></i></button>
 		<a href="login"><i class="fa fa-fw fa-user"></i> Cuenta</a>
-			  <a href="cart"><i class="fa fa-shopping-cart"></i>Carrito</a>
+	    <a href="cart"><i class="fa fa-shopping-cart"></i>Carrito</a>
 	  </div>
 	
 
@@ -30,15 +30,33 @@
 	<a href="#loMasVendido" class="button bar-item">Lo mas Vendido</a>
 	<a href="#ofertas" class="button bar-item">Ofertas</a>
   </nav>
-    <section class= "form-register">
-        <h4>Formulario de registro</h4>
-        <input class="controls" type="text" name="nombres" id="nombres" placeholder= "Ingrese su nombre">
-        <input class="controls" type="text" name="apellidos" id="apellidos" placeholder= "Ingrese sus apellidos">
-        <input class="controls" type="email" name="correo" id="correo" placeholder= "Ingrese su correo">
-        <input class="controls" type="password" name="correo" id="correo" placeholder= "Ingrese su contraseña">
-        <input class="botons" type="submit" value="Regristrar">
-        <p><a href="#">¿Ya tengo Cuenta?</a><p>
-    </section>
+
+  <div class = "login-box"> 
+        <form action="">
+            <table class="t_form">
+                <tr>
+                   <td><h4 class="h4_form">Formulario de registro</h4></td> 
+                </tr>
+                <tr>
+                    <td><input class="login-btn" type="text" name="nombres" id="nombres" placeholder= "Ingrese su nombre"></td> 
+                 </tr>
+                 <tr>
+                    <td><input class="login-btn" type="text" name="apellidos" id="apellidos" placeholder= "Ingrese sus apellidos"></td> 
+                 </tr>
+                 <tr>
+                    <td><input class="login-btn" type="email" name="correo" id="correo" placeholder= "Ingrese su correo"></td> 
+                 </tr>
+                 <tr>
+                    <td><input class="" type="submit" value="Registrar"></td>
+                 </tr>
+                 <tr>
+                    <td><a href="#" id="yatengo">¿Ya tengo Cuenta?</a></td> 
+                 </tr>
+            </table>
+            
+        </form>
+    </div>
+    <br>
     <%- include('./partials/footer') %>
 </body>
 </html>

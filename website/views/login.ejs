@@ -21,27 +21,43 @@
 			  <a href="cart"><i class="fa fa-shopping-cart"></i>Carrito</a>
 	  </div>
 	
-
 	 <!-- Navigation -->
-<nav class="bar black">
-	<a href="#home" class="button bar-item">Home</a>
-	<a href="#todo" class="button bar-item">Todo</a>
-	<a href="#loMasVendido" class="button bar-item">Lo mas Vendido</a>
-	<a href="#ofertas" class="button bar-item">Ofertas</a>
-  </nav>
+     <nav class="bar black">
+        <a href="#home" class="button bar-item">Home</a>
+        <a href="#todo" class="button bar-item">Todo</a>
+        <a href="#loMasVendido" class="button bar-item">Lo mas Vendido</a>
+        <a href="#ofertas" class="button bar-item">Ofertas</a>
+      </nav>
     
-    <div class = "login-box"> 
-        <h1>Iniciar sesión</h1>
-        <form>
-        
-            <input type = "text" placeholder="Usuario">
-            <input type = "password" placeholder="Contraseña">
-           <input type= "submit" value= "Log In">
+      <div class = "login-box"> 
+            <form action="">
+                <table class="t_form">
+                    <tr>
+                       <td><h4 class="h4_form">Formulario de registro</h4></td> 
+                    </tr>
+                    <tr>
+                        <td><input class="login-btn" type="text" name="nombres" id="Usuario" placeholder= "Usuario"></td> 
+                     </tr>
+                     <tr>
+                        <td><input class="login-btn" type="password" placeholder= "Constraseña"></td> 
+                     </tr>
+                     <tr>
+                        <td><input class="" type="submit" value="Registrar"></td>
+                     </tr>
+                     <tr>
+                        <td><a href="#" id="yatengo">¿Ya tengo Cuenta?</a></td> 
+                        <td><a href="#" id="yatengo">¿Contraseña olvidada?</a></td> 
+                     </tr>
+                </table>
+                
+            </form>
+        </div>
+        <br>
+        <%- include('./partials/footer') %>
+    </body>
+    </html>
+
+
+
+
            
-           <a href="#">¿Contraseña olvidada?</a><br>
-           <a href="#">¿Nuevo cliente?</a>
-        </form>
-    </div>
-    <%- include('./partials/footer') %>
-</body>
-</html>
