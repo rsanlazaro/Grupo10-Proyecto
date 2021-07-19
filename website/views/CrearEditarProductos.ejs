@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descripción del producto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/homestyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+<body>
+	<%- include('./partials/header') %>
+<main class="editar">
+
+</div>
+   <p class="mensaje">Edición de un producto existente</p>
+
+   <p>
+    <input type="text" name="IdProducto" id="" placeholder="Ingrese ID existente" class="ID" required>
+   </p>
+
+   <p>
+    <input type="text" name="nombreProducto" id="" placeholder="Cambiar nombre" class="Nombre_Producto">
+</p>
+
+<p>
+    <input type="text" name="categoría" id="" placeholder="Cambiar Categoría"
+        class="categoriaProduct">
+</p>
+
+<p>
+    <input type="number" name="precio" id="" placeholder="Cambiar Precio" class="precio">
+</p>
+
+<label for="CategoriaProducto">Cambiar categoría Producto:</label>
+<select name="CategoriaProducto" id="">
+    <option value="pulseras">pulseras</option>
+    <option value="collares">collares</option>
+    <option value="anillos">anillos</option>
+    <option value="aretes">aretes</option>
+</select>
+
+<label for="CategoriaTamaño">Cambiar tamaño:</label>
+<select name="CategoriaTamaño" id="">
+    <option value="pequeño">Pequeño</option>
+    <option value="mediano">Mediano</option>
+    <option value="grande">Grande</option>
+</select>
+
+<p>
+    <textarea name="descripcion" id="" placeholder="Descripción nueva" class=""required></textarea>
+</p>
+
+<p>
+    <button type="submit" class="">Registrar cambio </button>
+</p>
+</form>                     
+    </main>
+    <%- include('./partials/footer') %>
+</body>
+</html>
