@@ -1,0 +1,3 @@
+exports.controler = {
+    mode: 'production'
+}

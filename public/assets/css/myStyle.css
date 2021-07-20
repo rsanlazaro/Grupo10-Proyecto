@@ -1,0 +1,23 @@
+form .btn-custom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.show-area{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.show-area .card-style{
+    width:33.33333%;
+}
+.show-area .card-style .img-area img{
+    width: 100%;
+    height: 100%;
+}
+.myImg{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}

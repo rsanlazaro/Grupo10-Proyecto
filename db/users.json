@@ -1,0 +1,20 @@
+[
+    {
+        "userID": "1",
+        "name": "Administrador",
+        "email": "admin@mail.com",
+        "password": "12345678",
+        "password_confirmation": "12345678",
+        "isadmin": "true",
+        "imagename": ""
+    },
+    {
+        "userID": "2",
+        "name": "Comprador",
+        "email": "comprador@mail.com",
+        "password": "123456789",
+        "password_confirmation": "123456789",
+        "isadmin": "false",
+        "imagename": ""
+    }
+]

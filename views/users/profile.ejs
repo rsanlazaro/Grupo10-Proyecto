@@ -1,0 +1,183 @@
+<!doctype html>
+
+<%- include("../partials/header.ejs") %>
+
+    <!-- start popup-->
+    <div class="popup first-popup">
+        <div class="inner">
+           <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center p-5">
+                    <video src="" id="video-screen" autoplay="true" class="mb-3" width="100%" style="background-color: #efefef; border-radius: 10px; border: 3px dashed #555;"></video>
+                    <button id="take-screenshot" class="btn btn-primary">Take Screen Shot</button>
+                    <button id="stop" class="btn btn-primary">Stop</button>
+                </div>
+                <div class="col-md-6 text-center p-5">
+                    <canvas id="show-screenshot" style="display: none;"></canvas>
+                    <div id="img-container" style="display: none; width: 100%;">
+                        <img src="" alt="" class="mb-3" id="token-img" style="width: 100%; border-radius: 10px; border: 3px dashed #555;"/>
+                        <button id='Download-Btn' class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+           </div>
+            <i class="exit fa fa-times"></i>
+        </div>
+    </div>
+
+
+    <main>
+        <section class="profile pt-70 pb-70" style="background-color: #fbfbfb;">
+           
+            <div class="container">
+                <%if (err == 0) { %>
+                    <div class="alert alert-success" role="alert">
+                        <%= typeof msg != 'undefined' ? msg : '' %>
+                    </div>
+                    <% }if (err == 1) { %>
+                
+                    <div class="alert alert-danger" role="alert">
+                        <%= typeof msg != 'undefined' ? msg : '' %>
+                    </div>
+                    <% } %>
+                <div class="card">
+                    
+                    <%if(ismatchErrorMessage !== ""){%>
+                        <div class="alert alert-danger" role="alert"><%= generalErrorMessage %></div>
+                        <%}%>
+                    <%if(generalErrorMessage !== ""){%>
+                        <div class="alert alert-danger" role="alert"><%= generalErrorMessage %></div>
+                        <%}%>
+                    <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-user"></i> Edit Information</h5>
+                    </div>
+                    <div class="card-body py-4">
+                        <form action="/users/edituser.html/<%=userID%>" method="POST" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-4 text-center">
+                                    <div class="avatar-upload">
+                                        <div class="avatar-edit">
+                                            <input type="file" id="imageUpload"
+                                             name="image"
+                                             >
+                                            <label for="imageUpload">
+                                                <i class="fa fa-pencil-alt"></i>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="avatar-preview">
+                                            <!-- <div id="imagePreview" style="background-image:url('');">
+                                                
+                                            </div>  -->
+                                            
+                                            <img class="myImg" 
+                                            id="imagePreview" 
+                                            <%if(userImage === ""){%>
+                                                src= "assets/img/hero/avatar5.png"
+                                                <%}else{%>
+                                                   
+                                                    src="<%=userImage%>"
+                                                <%}%>
+                                            
+                                            alt="" />
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary p-4 mt-3 show-popup" data-popup='first-popup'><i class="fa fa-camera"></i> Camera</button>
+                                </div>
+                                <div class="col-md-8 pt-4">
+                                    <%if(userNameErrorMessage !== ""){%>
+                                        <div class="alert alert-danger" role="alert"><%= userNameErrorMessage %></div>
+                                        <%}%>
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input class="form-control" required="required" name="name" type="text" id="name" 
+                                        value= "<%= userName %>"
+                                        <%if(flag){%>
+                                            readonly
+                                            <%}%>
+                                        >
+
+                                    </div>
+                                    <%if(emailErrorMessage !== ""){%>
+                                        <div class="alert alert-danger" role="alert"><%= emailErrorMessage %></div>
+                                        <%}%>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input class="form-control" required="required" name="email" type="email" id="email" value= "<%= userEmail %>"
+                                        <%if(flag){%>
+                                            readonly
+                                            <%}%>
+                                        >
+                                    </div>
+                                    <%if(passwordErrorMessage !== ""){%>
+                                        <div class="alert alert-danger" role="alert"><%= passwordErrorMessage %></div>
+                                        <%}%>
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input class="form-control" required="required" name="password" type="password" id="password" value= "<%= pass %>""
+                                      
+
+                                            <%if(flag){%>
+                                                readonly
+                                                <%}%>
+                                        >
+                                    </div>
+                                    <%if(passwordConfirmationErrorMessage !== ""){%>
+                                        <div class="alert alert-danger" role="alert"><%= passwordErrorMessage %></div>
+                                        <%}%>
+                                    <div class="form-group">
+                                        <label for="password_confirmation">Confirm Password</label>
+                                        <input class="form-control" required="required" name="password_confirmation" type="password" id="password_confirmation" value= "<%= con_pass %>""
+                                      
+
+                                            <%if(flag){%>
+                                                readonly
+                                                <%}%>
+                                        >
+                                    </div>
+
+                                   
+                                    <input class="btn btn-primary profile-submit" type="submit" value="Edit"
+                                    <%if(flag){%>
+                                        style="display:none;"
+                                        <%}%>
+                                    >
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <%- include("../partials/footer.ejs") %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        if(<%-flag%>){
+        document.getElementById("imageUpload").disabled = true;
+        }
+        function readURL(input) {
+        
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    console.log('e.target.result -> ' + e.target.result)
+                //    $('#imagePreview').style.backgroundImage =  `src(${e.target.result})`;
+                $('#imagePreview').attr('src', e.target.result);
+                // $('#imagePreview').css('background', 'transparent url('+e.target.result +') left top no-repeat');
+                }
+                
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+
+        $("#imageUpload").change(function() {
+            readURL(this);
+        });
+    </script>
+    <script src="./assets/js/FileSaver.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<%- include("../partials/header.ejs") %>
+
+<main>
+    <div class="slider-area ">
+        <!-- Mobile Menu -->
+        <div class="single-slider slider-height2 d-flex align-items-center"
+            data-background="assets/img/hero/category.jpg"
+            style="background-image: url(&quot;assets/img/hero/category.jpg&quot;);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>product detials</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="product">
+        <div class="product-view card card-solid pt-70 pb-70">
+            <div class="container">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-5 p-5">
+                            <div id="ex1">
+                                <img class="w-100" src="<%=item.productImage%>" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-7 p-5">
+                            <h3><%=item.name%></h3>
+                            <p class="mb-2 text-muted text-uppercase small"><%=item.category%></p>
+                            <div class="product-caption">
+                                <div class="product-ratting">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                </div>
+                                <div class="price">
+                                    <ul>
+                                        <li>$<%=item.price%></li>
+                                        <!-- --------------------------- -->
+                                    </ul>
+                                </div>
+                            </div>
+                            <p class="pt-1" style="text-align: justify;">
+
+                                <%=item.description%>
+                            </p>
+                            <div class="mt-4">
+                                <a class="btn btn-primary mr-3" id="addBTN"
+                                   
+                                    href= "/products/addtocart.html/<%=item.productID%>">
+                                    <i class="fas fa-cart-plus fa-lg mr-2"></i>
+                                    Add to Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+        </div>
+    </section>
+
+</main>
+<%- include("../partials/footer.ejs") %>
+<script>
+    $(document).ready(function () {
+        $('#ex1').zoom();
+    });
+</script>
+<script>
+    let arr = [];
+
+    function saveProduct(arrr) {
+        fetch(`/products/addtocart.html/${arrr}`,(req,res) =>{
+
+        })
+            // .then(returnJsonData => returnJsonData.json())
+            // .then(data => {
+
+            //         console.log(data)
+            // })
+                    //     var existingEntries = JSON.parse(localStorage.getItem("products"));
+                    //     arr.push(existingEntries);
+                    //     arr.push(arrr);
+
+                    //    // console.log(arr);
+                    //     //var names = [];
+                    //  //   names[0] = prompt("New member name?");
+                    //     localStorage.setItem("products", JSON.stringify(arr));
+
+                    //     //...
+                    //     var storedNames = JSON.parse(localStorage.getItem("products"));
+                    //     console.log(storedNames);
+                }
+                // saveProduct();
+</script>
+</body>
+
+</html>
