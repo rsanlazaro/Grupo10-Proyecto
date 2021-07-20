@@ -18,42 +18,55 @@
 <main class="editar">
 
 </div>
-   <p class="mensaje">Edición de un producto existente</p>
+   <p class="mensaje">Estas editando: Productos Brillo de Luna</p>
 
    <p>
-    <input type="text" name="IdProducto" id="" placeholder="Ingrese ID existente" class="ID" required>
+    <label for="nombreProducto">Nombre del producto:</label>   
+    <input type="text" name="nombreProducto" id="" placeholder="Cambiar nombre" class="Nombre_Producto">
    </p>
 
    <p>
-    <input type="text" name="nombreProducto" id="" placeholder="Cambiar nombre" class="Nombre_Producto">
+    <label for="IdProducto">Ingrese ID:</label>   
+    <input type="text" name="IdProducto" id="" placeholder="Ingrese ID existente" class="ID" required>
+   </p>
+
+<p>
+    <label for="precio">Precio del Producto:</label> 
+    <input type="number" name="precio" id="" placeholder="Ej. 456" class="precio">
 </p>
 
 <p>
-    <input type="text" name="categoría" id="" placeholder="Cambiar Categoría"
-        class="categoriaProduct">
+    <label for="precio">Descuento:</label> 
+    <input type="number" name="precio" id="" placeholder="Ej. 456" class="precio">
 </p>
 
 <p>
-    <input type="number" name="precio" id="" placeholder="Cambiar Precio" class="precio">
-</p>
-
-<label for="CategoriaProducto">Cambiar categoría Producto:</label>
+<label for="CategoriaProducto">Categoría:</label>
 <select name="CategoriaProducto" id="">
     <option value="pulseras">pulseras</option>
     <option value="collares">collares</option>
     <option value="anillos">anillos</option>
     <option value="aretes">aretes</option>
 </select>
+</p>
 
+<p>
 <label for="CategoriaTamaño">Cambiar tamaño:</label>
 <select name="CategoriaTamaño" id="">
     <option value="pequeño">Pequeño</option>
     <option value="mediano">Mediano</option>
     <option value="grande">Grande</option>
 </select>
+</p>
 
 <p>
-    <textarea name="descripcion" id="" placeholder="Descripción nueva" class=""required></textarea>
+    <label for="descripcion">Descripción:</label>
+    <textarea name="descripcion" id="" placeholder="Descripcion" class=""required></textarea>
+</p>
+
+<p>
+    <label for="imageFile">Imagen del producto:</label>
+	<input type="file" id="imageFile" accept="image/*" multiple>
 </p>
 
 <p>
