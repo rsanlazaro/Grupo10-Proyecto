@@ -1,8 +1,8 @@
 const { count } = require("console");
 var fs = require("fs");
 const path = require('path');
-var config = require("../controlers/config");
-var helpFunction = require("../controlers/help");
+var config = require("../controllers/config");
+var helpFunction = require("../controllers/help");
 var newItemsArray = []
 var cartItems = [];
 if (fs.existsSync("db/cart.json")) {
@@ -12,28 +12,28 @@ if (fs.existsSync("db/cart.json")) {
 }
 
 
-exports.controler = {
-    getCartItemsCount:(req,res) =>{
+exports.controller = {
+    getCartItemsCount: (req, res) => {
 
         var count = 0;
         cartItems.forEach(item => {
-               
-            if(item.userID == req.session.userID){
+
+            if (item.userID == req.session.userID) {
                 count++;
             }
         })
-        return count; 
+        return count;
     },
-    cartview:(req,res)=>{
+    cartview: (req, res) => {
         newItemsArray = []
-        if(req.session.name){
+        if (req.session.name) {
             cartItems.forEach(item => {
-               
-                if(item.userID == req.session.userID){
+
+                if (item.userID == req.session.userID) {
                     console.log(typeof item)
                     newItemsArray.push(item);
 
-                    
+
                     console.log(newItemsArray)
                 }
             })
@@ -42,40 +42,40 @@ exports.controler = {
                 err: -1,
                 items: newItemsArray,
                 login: req.session.name ? 'ok' : 'no',
-                isAdmin: req.session.isAdmin === 'true'?'yes':'no',
-                itemsCount:this.controler.getCartItemsCount(req,res)
+                isAdmin: req.session.isAdmin === 'true' ? 'yes' : 'no',
+                itemsCount: this.controller.getCartItemsCount(req, res)
             })
             // res.send(cartItems);
-        }else{
+        } else {
             res.send('<script> location.href = "/home.html" </script>');
 
         }
-        
+
     },
-   
-    add: (req,res,data) => {
-         if(req.session.name){
+
+    add: (req, res, data) => {
+        if (req.session.name) {
 
             var newqq = {};
-               
 
-                Object.assign(newqq, {
-                    userID: `${req.session.userID}`
-                }, data);
+
+            Object.assign(newqq, {
+                userID: `${req.session.userID}`
+            }, data);
             cartItems.push(newqq);
             console.log(cartItems)
             saveCartItemsToFile();
             res.send('<script> location.href = "/products/productList.html" </script>');
-         }else{
-             res.send('<script> location.href = "/home.html" </script>');
-         }
+        } else {
+            res.send('<script> location.href = "/home.html" </script>');
+        }
 
     },
     delete: (req, res) => {
         var itemIndex = cartItems.findIndex((item) => item.productID == req.params.id);
-       
+
         if (itemIndex >= 0) {
-         
+
             cartItems.splice(itemIndex, 1);
 
             saveCartItemsToFile();

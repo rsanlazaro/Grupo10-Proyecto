@@ -23,7 +23,7 @@ var errors = {
     passwordErrorMessage: "",
     passwordConfirmationErrorMessage: "",
     generalErrorMessage: "",
-    ismatchErrorMessage:""
+    ismatchErrorMessage: ""
 }
 var data = {
     name: "",
@@ -33,7 +33,7 @@ var data = {
 }
 
 
-exports.controler = {
+exports.controller = {
     register: function (req, res) {
         if (req.session.name) {
             res.send("<script>location.href= 'products/productList.html'</script>")
@@ -43,27 +43,27 @@ exports.controler = {
             data['email'] = req.body.email;
             data['password'] = req.body.password;
             data['passwordConfirmation'] = req.body.password_confirmation;
-            
-            // var validName = validation.controler.username(req.body.name);
-            // var validEmail = validation.controler.email(req.body.email);
-           
-            // var validPassword = validation.controler.password(req.body.password);
-            // var validPasswordConfirmation = validation.controler.password(req.body.password_confirmation);
+
+            // var validName = validation.controller.username(req.body.name);
+            // var validEmail = validation.controller.email(req.body.email);
+
+            // var validPassword = validation.controller.password(req.body.password);
+            // var validPasswordConfirmation = validation.controller.password(req.body.password_confirmation);
             var id;
             if (users.length == 0) {
                 id = 1;
             } else {
                 id = Number(users[users.length - 1].userID) + 1;
             }
-             errors =  validation.controler.checkValid(req.body,id);
-             console.log(validation.controler.isError())
-             if(!validation.controler.isError()){
-                var isAdmin = validation.controler.admin(req.body.email);
+            errors = validation.controller.checkValid(req.body, id);
+            console.log(validation.controller.isError())
+            if (!validation.controller.isError()) {
+                var isAdmin = validation.controller.admin(req.body.email);
                 console.log('ok');
                 console.log('isAdmin -> ' + isAdmin);
 
                 var newqq = {};
-               
+
 
                 Object.assign(newqq, {
                     userID: `${id}`
@@ -76,17 +76,17 @@ exports.controler = {
                 saveUsersArrayToFile();
 
                 res.send("<script>location.href= '/login.html'</script>")
-             }else{
+            } else {
                 res.render("auth/register.ejs", {
                     ...errors,
                     ...data
                 })
-             }
+            }
 
             // if (validName && validEmail && validPassword && validPasswordConfirmation) {
             // var userIndex = users.findIndex((item) => item.email == req.body.email);
-            
-            //     var isAdmin = validation.controler.isExist(req.body.email)
+
+            //     var isAdmin = validation.controller.isExist(req.body.email)
             //     if (isAdmin) {
             //         console.log("This email registered before, please try with another email");
             //         isFoundBefore = true;
@@ -137,7 +137,7 @@ exports.controler = {
             //     console.log('validPasswordConfirmation ' + validPasswordConfirmation)
             //     console.log('isFoundBefore ' + isFoundBefore)
             //     console.log('isMatch ' + isMatch)
-               
+
             //     console.log('isFoundBefore ' + isFoundBefore)
             //     console.log('isMatch ' + isMatch)
             //     validName ? errors['userNameErrorMessage'] = "" : errors['userNameErrorMessage'] = '* Name is not valid';
@@ -166,8 +166,8 @@ exports.controler = {
             if (user) {
 
                 // var userInfo = []
-                if (!log.controler.isExist()) {
-                    log.controler.setUserInfo({
+                if (!log.controller.isExist()) {
+                    log.controller.setUserInfo({
                         userID: users[userIndex].userID,
                         name: users[userIndex].name,
                         isadmin: users[userIndex].isadmin

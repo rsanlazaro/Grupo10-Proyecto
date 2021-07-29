@@ -6,36 +6,36 @@ if (fs.existsSync("db/log.json")) {
     });
 }
 
-exports.controler = {
+exports.controller = {
 
-    setUserInfo:(userData) => {
+    setUserInfo: (userData) => {
         userInfo.push(userData);
         console.log(userInfo[0]['isadmin'])
         saveUserInfoToFile();
     },
-    clearUserInfo:() => {
+    clearUserInfo: () => {
         userInfo = [];
         saveUserInfoToFile();
     },
-    isAdmin:()=>{
+    isAdmin: () => {
         return userInfo[0]['isadmin'];
     },
     isExist: () => {
         let retValue = false;
-        if(userInfo.length > 0){
+        if (userInfo.length > 0) {
             retValue = true;
-        }else{
+        } else {
 
         }
         return retValue;
     },
-    updateSession:(req,res) => {
+    updateSession: (req, res) => {
         console.log('updateSession -> ')
         console.log(`${userInfo[0]['userID']}${userInfo[0]['name']}`)
         var varl = `${userInfo[0]['userID']}${userInfo[0]['name']}`;
-         req.session.name = varl
-         req.session.userID = `${userInfo[0]['userID']}`
-         req.session.is_Admin = `${userInfo[0]['isadmin']}`
+        req.session.name = varl
+        req.session.userID = `${userInfo[0]['userID']}`
+        req.session.is_Admin = `${userInfo[0]['isadmin']}`
     }
 }
 

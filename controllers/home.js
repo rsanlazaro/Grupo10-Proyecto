@@ -1,9 +1,9 @@
-var cart = require("../controlers/cart");
-exports.controler = {
+var cart = require("../controllers/cart");
+exports.controller = {
     logout: function (req, res) {
-        
+
         req.session.destroy();
-        
+
         res.send("<script>location.href= '/home.html'</script>");
 
     },
@@ -13,8 +13,8 @@ exports.controler = {
             msg: '',
             err: -1,
             login: req.session.name ? 'ok' : 'no',
-            isAdmin: req.session.isAdmin === 'true'?'yes':'no',
-            itemsCount:cart.controler.getCartItemsCount(req, res)
+            isAdmin: req.session.isAdmin === 'true' ? 'yes' : 'no',
+            itemsCount: cart.controller.getCartItemsCount(req, res)
         })
 
     },
@@ -25,8 +25,8 @@ exports.controler = {
             msg: '',
             err: -1,
             login: req.session.name ? 'ok' : 'no',
-            isAdmin: req.session.isAdmin === 'true'?'yes':'no',
-            itemsCount:cart.controler.getCartItemsCount(req, res)
+            isAdmin: req.session.isAdmin === 'true' ? 'yes' : 'no',
+            itemsCount: cart.controller.getCartItemsCount(req, res)
         })
 
     }

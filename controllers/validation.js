@@ -27,7 +27,7 @@ var data = {
     passwordConfirmation: ""
 }
 
-exports.controler = {
+exports.controller = {
     username: function (name) {
         var ret = regex.test(name);
         errFlag = ret ? false : true;
@@ -76,7 +76,7 @@ exports.controler = {
         let retVal = true;
         if (password !== password_confirmation) {
             retVal = false;
-        }else{
+        } else {
 
         }
         errFlag = retVal ? errFlag : true;
@@ -89,7 +89,7 @@ exports.controler = {
         errors['passwordErrorMessage'] = Data.password ? (this.password(Data.password) ? "" : '* Password must be more than 8 digits') : "";
         errors['passwordConfirmationErrorMessage'] = Data.password_confirmation ? (this.password(Data.password_confirmation) ? "" : "* Password Confirmation must be more than 8 digits") : "";
         errors['generalErrorMessage'] = Data.email ? ((this.isExist(Data.email) && this.isChanged(id, Data.email)) ? '* This email registered before, please try with another email' : "") : "";
-        errors['ismatchErrorMessage'] = this.isMatch(Data.password,Data.password_confirmation) ?"" :'* Password Does not match, please try again' ;
+        errors['ismatchErrorMessage'] = this.isMatch(Data.password, Data.password_confirmation) ? "" : '* Password Does not match, please try again';
         console.log("her")
         console.log((Data.password !== Data.password_confirmation));
         return errors;

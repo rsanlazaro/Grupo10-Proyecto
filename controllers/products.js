@@ -1,15 +1,15 @@
 var fs = require("fs");
 const multer = require('multer');
 const path = require('path');
-var config = require("../controlers/config");
-var helpFunction = require("../controlers/help");
+var config = require("../controllers/config");
+var helpFunction = require("../controllers/help");
 
 var cart = require("./cart");
 //set storge engine
 const storge = multer.diskStorage({
     destination: './public/upload',
     filename: function (req, file, cb) {
-        cb(null, `${productArray.length == 0 ? 1 :Number(productArray[productArray.length - 1].productID) + 1}-${req.body.name}-${Date.now()}-${file.originalname}`);
+        cb(null, `${productArray.length == 0 ? 1 : Number(productArray[productArray.length - 1].productID) + 1}-${req.body.name}-${Date.now()}-${file.originalname}`);
     }
 });
 
@@ -21,7 +21,7 @@ const upload = multer({
     },
     fileFilter: function (req, file, cb) {
         // checkFileType(file, cb);
-        helpFunction.controler.checkFileType(file, cb);
+        helpFunction.controller.checkFileType(file, cb);
     }
 }).single("image");
 
@@ -49,63 +49,63 @@ const upload = multer({
 // }
 
 
-exports.controler = {
-    allproducts:function (req, res) {
-        if(req.session.is_Admin === 'true'){
-        if(productArray.length == 0){
-            res.render('adminProductControl', {
-                msg: 'File Uploaded',
-                login: req.session.name ? 'ok' : 'no',
-                err: 0,
-                items:[],
-                itemsCount:cart.controler.getCartItemsCount(req, res)
-               
-            });
-        }else{
-            res.render('adminProductControl', {
-                msg: 'File Uploaded',
-                login: req.session.name ? 'ok' : 'no',
-                isAdmin: req.session.isAdmin === 'true'?'yes':'no',
-                err: 0,
-                items:productArray,
-                itemsCount:cart.controler.getCartItemsCount(req, res)
-                
-            });
-        }
-     } else{
-           
+exports.controller = {
+    allproducts: function (req, res) {
+        if (req.session.is_Admin === 'true') {
+            if (productArray.length == 0) {
+                res.render('adminProductControl', {
+                    msg: 'File Uploaded',
+                    login: req.session.name ? 'ok' : 'no',
+                    err: 0,
+                    items: [],
+                    itemsCount: cart.controller.getCartItemsCount(req, res)
+
+                });
+            } else {
+                res.render('adminProductControl', {
+                    msg: 'File Uploaded',
+                    login: req.session.name ? 'ok' : 'no',
+                    isAdmin: req.session.isAdmin === 'true' ? 'yes' : 'no',
+                    err: 0,
+                    items: productArray,
+                    itemsCount: cart.controller.getCartItemsCount(req, res)
+
+                });
+            }
+        } else {
+
         }
     },
-    cartview:(req,res)=>{
-        if(req.session.name){
+    cartview: (req, res) => {
+        if (req.session.name) {
             res.render("products/cart.ejs", {
                 msg: '',
                 err: -1,
                 login: req.session.name ? 'ok' : 'no',
-                isAdmin: req.session.isAdmin === 'true'?'yes':'no',
-                itemsCount:cart.controler.getCartItemsCount(req, res)
+                isAdmin: req.session.isAdmin === 'true' ? 'yes' : 'no',
+                itemsCount: cart.controller.getCartItemsCount(req, res)
             })
-        }else{
+        } else {
             res.send('<script> location.href = "/home.html" </script>');
 
         }
-        
+
     },
     allproductsView: function (req, res) {
         console.log(req.session);
         res.render("products/productList.ejs", {
             msg: '',
             err: -1,
-            isAdmin: req.session.isAdmin === 'true'?'yes':'no',
+            isAdmin: req.session.isAdmin === 'true' ? 'yes' : 'no',
             login: req.session.name ? 'ok' : 'no',
-            itemsCount:cart.controler.getCartItemsCount(req, res)
+            itemsCount: cart.controller.getCartItemsCount(req, res)
         })
     },
     productsViewByPage: (req, res) => {
 
         var lB = ((req.params.id * 6) - 6);
         var uB = (req.params.id * 6);
-        if (config.controler.mode == 'devolopment') {
+        if (config.controller.mode == 'devolopment') {
             console.log(req.params.id);
             console.log(lB)
             console.log(uB)
@@ -165,23 +165,23 @@ exports.controler = {
                     res.render('adminProductControl', {
                         msg: `Error: ${error.message}`,
                         login: req.session.name ? 'ok' : 'no',
-                        isAdmin: req.session.isAdmin === 'true'?'yes':'no',
-                        items:[],
+                        isAdmin: req.session.isAdmin === 'true' ? 'yes' : 'no',
+                        items: [],
                         err: true,
-                        itemsCount:cart.controler.getCartItemsCount(req, res)
+                        itemsCount: cart.controller.getCartItemsCount(req, res)
                     });
                 } else {
                     if (req.file == undefined) {
                         res.render('adminProductControl', {
                             msg: 'Error: No File Selected',
                             login: req.session.name ? 'ok' : 'no',
-                            isAdmin: req.session.isAdmin === 'true'?'yes':'no',
-                            items:[],
+                            isAdmin: req.session.isAdmin === 'true' ? 'yes' : 'no',
+                            items: [],
                             err: 1,
-                            itemsCount:cart.controler.getCartItemsCount(req, res)
+                            itemsCount: cart.controller.getCartItemsCount(req, res)
                         });
                     } else {
-                        if (config.controler.mode == 'devolopment') {
+                        if (config.controller.mode == 'devolopment') {
                             console.log(req.file);
                             console.log(req.body);
                         }
@@ -192,7 +192,7 @@ exports.controler = {
                         } else {
                             id = Number(productArray[productArray.length - 1].productID) + 1;
                         }
-                        if (config.controler.mode == 'devolopment') {
+                        if (config.controller.mode == 'devolopment') {
                             console.log('hi -> ' + req.file.filename);
                         }
                         Object.assign(newqq, {
@@ -208,7 +208,7 @@ exports.controler = {
                         productArray.push(newqq);
                         saveProductArrayToFile();
 
-                        if (config.controler.mode == 'devolopment') {
+                        if (config.controller.mode == 'devolopment') {
                             console.log(productArray.length)
                         }
                         let obj = {}
@@ -218,23 +218,23 @@ exports.controler = {
                             data: productArray
                         })
 
-                        if (config.controler.mode == 'devolopment') {
+                        if (config.controller.mode == 'devolopment') {
                             console.log(obj.data[7])
                         }
 
                         res.render('adminProductControl', {
                             msg: 'File Uploaded',
                             login: req.session.name ? 'ok' : 'no',
-                            isAdmin: req.session.isAdmin === 'true'?'yes':'no',
+                            isAdmin: req.session.isAdmin === 'true' ? 'yes' : 'no',
                             err: 0,
-                            items:productArray,
+                            items: productArray,
                             file: `upload/${req.file.originalname}`,
-                            itemsCount:cart.controler.getCartItemsCount(req, res)
+                            itemsCount: cart.controller.getCartItemsCount(req, res)
                         });
                     }
                 }
             });
-        }else{
+        } else {
             res.send('<script> location.href = "/home.html" </script>');
         }
 
@@ -273,21 +273,21 @@ exports.controler = {
         res.render("products/product.ejs", {
             item: productArray[productIndex],
             login: req.session.name ? 'ok' : 'no',
-            isAdmin: req.session.isAdmin === 'true'?'yes':'no',
+            isAdmin: req.session.isAdmin === 'true' ? 'yes' : 'no',
             errormessage: "",
-            itemsCount:cart.controler.getCartItemsCount(req, res)
+            itemsCount: cart.controller.getCartItemsCount(req, res)
         })
     },
-    addtocart:(req, res) => {
-        if(req.session.name){
+    addtocart: (req, res) => {
+        if (req.session.name) {
             var productIndex = productArray.findIndex((item) => item.productID == req.params.id);
-            cart.controler.add(req, res,productArray[productIndex]);
-        }else{
+            cart.controller.add(req, res, productArray[productIndex]);
+        } else {
 
             res.send('<script> location.href = "/login.html" </script>');
-            
+
         }
-       
+
     }
 }
 
