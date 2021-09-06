@@ -114,7 +114,7 @@ exports.controller = {
         if ((lB < productArray.length) && (uB <= productArray.length)) {
             var newArray = [];
             var count = 0;
-            let obj = {}
+            let obj = { }
 
             for (var i = lB; i < uB; i++) {
                 newArray.push(productArray[i]);
@@ -137,7 +137,7 @@ exports.controller = {
                     newArray.push(productArray[i]);
                     count++;
                 }
-                let obj = {}
+                let obj = { }
                 Object.assign(obj, {
                     page: req.params.id,
                     imgprepage: count,
@@ -185,7 +185,7 @@ exports.controller = {
                             console.log(req.file);
                             console.log(req.body);
                         }
-                        var newqq = {};
+                        var newqq = { };
                         var id;
                         if (productArray.length == 0) {
                             id = 1;
@@ -211,7 +211,7 @@ exports.controller = {
                         if (config.controller.mode == 'devolopment') {
                             console.log(productArray.length)
                         }
-                        let obj = {}
+                        let obj = { }
                         Object.assign(obj, {
                             page: 1,
                             imgprepage: productArray.length,

@@ -12,6 +12,8 @@ bodyParser = bodyParser.urlencoded({
 
 router.get("/addproduct.html", admin.controller.addproduct)
 router.get("/showproduct.html", products.controller.allproducts)
+//router.get("/productDetails.html/:id", products.controller.productitem)
+router.get("/editproduct.html/:id", admin.controller.editproduct)
 router.get("/home.html", admin.controller.adminView)
 router.get("/productControl.html", admin.controller.adminProductControl)
 

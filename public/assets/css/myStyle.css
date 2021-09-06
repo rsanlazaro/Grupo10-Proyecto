@@ -21,3 +21,12 @@ form .btn-custom{
     height: 100%;
     border-radius: 50%;
 }
+
+.editProduct{
+    color:black;
+    transition: all 0.4s ease-out 0s;
+}
+
+.editProduct:hover{
+    color: #c29480; 
+}

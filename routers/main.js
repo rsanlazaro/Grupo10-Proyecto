@@ -10,6 +10,7 @@ bodyParser = bodyParser.urlencoded({
     extended: false
 })
 
+router.get("/", home.controller.index);
 router.get("/users/login.html", auth.controller.loginView)
 router.get("/login.html", auth.controller.loginView)
 router.get("/register.html", auth.controller.registerView)

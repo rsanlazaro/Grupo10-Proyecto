@@ -16,5 +16,23 @@
         "password_confirmation": "123456789",
         "isadmin": "false",
         "imagename": ""
+    },
+    {
+        "userID": "3",
+        "name": "Rafael Alberto",
+        "email": "correo@hotmail.com",
+        "password": "holahola",
+        "password_confirmation": "holahola",
+        "isadmin": "false",
+        "imagename": ""
+    },
+    {
+        "userID": "4",
+        "name": "Rafael Alberto",
+        "email": "A00831356@hotmail.com",
+        "password": "contraseña",
+        "password_confirmation": "contraseña",
+        "isadmin": "false",
+        "imagename": ""
     }
 ]

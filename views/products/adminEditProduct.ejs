@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/flaticon.css">
+    <link rel="stylesheet" href="/assets/css/slicknav.css">
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="/assets/css/slick.css">
+    <link rel="stylesheet" href="/assets/css/nice-select.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="/assets/css/mystyle.css"> <!-- CSS main style add and edit from here -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <title>Brillo de Luna Accesorios</title>
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="/assets/img/bdl/logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader end -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area">
+            <div class="main-header ">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
+                                <div class="logo">
+                                    <a href="/home.html"><img src="/assets/img/bdl/logo.png" alt="" width="80%"></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-8 col-md-7 col-sm-5">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/home.html">Inicio</a></li>
+                                            <li><a href="/about.html">Nosotros</a></li>
+                                            <!-- <li><a href="Catagori.html">Catagori</a></li> -->
+                                            <li class="hot"><a href="#">Lo mas nuevo</a>
+                                                <ul class="submenu">
+                                                    <li><a href="/products/productList.html"> Lista de Productos</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li><a href="#">Admin Control</a>
+                                                <ul class="submenu">
+                                                    <li><a href="/admin/showproduct.html"> Product Control</a></li>
+                                                    <li><a href=""> Order Control</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
+                                <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
+                                    <li class="d-none d-lg-block"> <a href="../login.html"
+                                            class="btn header-btn">Iniciar Sesion</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <div class="slider-area ">
+            <!-- Mobile Menu -->
+            <div class="single-slider slider-height2 d-flex align-items-center"
+                data-background="assets/img/hero/category.jpg"
+                style="background-image: url(&quot;assets/img/hero/category.jpg&quot;);">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center">
+                                <h2>Product details</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="product">
+            <div class="product-view card card-solid pt-70 pb-70">
+                <div class="container">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-5 p-5">
+                                <div id="ex1">
+                                    <img class="w-100" src="/<%=item.productImage%>" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-7 p-5">
+                                <h3>
+                                    <%=item.name%>
+                                </h3>
+                                <p class="mb-2 text-muted text-uppercase small">
+                                    <%=item.category%>
+                                </p>
+                                <div class="product-caption">
+                                    <div class="product-ratting">
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star low-star"></i>
+                                        <i class="far fa-star low-star"></i>
+                                    </div>
+                                    <div class="price">
+                                        <ul>
+                                            <li>$<%=item.price%>
+                                            </li>
+                                            <!-- --------------------------- -->
+                                        </ul>
+                                    </div>
+                                </div>
+                                <p class="pt-1" style="text-align: justify;">
+
+                                    <%=item.description%>
+                                </p>
+                                <div class="mt-4">
+                                    <a class="btn btn-primary mr-3" id="addBTN"
+                                        href="/products/addtocart.html/<%=item.productID%>">
+                                        <i class="fas fa-cart-plus fa-lg mr-2"></i>
+                                        Add to Cart
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+
+        <!-- Footer Start-->
+        <div class="footer-area footer-padding">
+            <div style="text-align: center; font: size 20px;">
+
+                <!-- social -->
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-behance"></i></a>
+                    <a href="#"><i class="fas fa-globe"></i></a>
+                </div>
+
+            </div>
+
+            <!-- Footer bottom -->
+
+            <div class="col-xl-7 col-lg-7 col-md-7">
+                <div class="footer-copy-right">
+                    <p>
+                        Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                        Este sitio fué creado con
+                        <i class="ti-heart" aria-hidden="true"></i>
+                        por
+                        <a href="" target="_blank">
+                            Grupo 10-DH </a>
+                    </p>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- Footer End-->
+    </footer>
+
+    <!-- JS here -->
+
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <!-- DataTables -->
+    <script src="/assets/js/jquery.dataTables.js"></script>
+    <script src="/assets/js/dataTables.bootstrap4.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/slick.min.js"></script>
+
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/animated.headline.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="/assets/js/jquery.scrollUp.min.js"></script>
+    <script src="/assets/js/jquery.nice-select.min.js"></script>
+    <script src="/assets/js/jquery.sticky.js"></script>
+    <script src="/assets/js/jquery.zoom.js"></script>
+
+    <!-- nice scroll-->
+    <script src="/assets/js/jquery.nicescroll.min.js"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#ex1').zoom();
+        });
+    </script>
+    <script>
+        let arr = [];
+
+        function saveProduct(arrr) {
+            fetch(`/products/addtocart.html/${arrr}`, (req, res) => {
+
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,5 +1,14 @@
 var cart = require("../controllers/cart");
 exports.controller = {
+    index: function (req, res) {
+        res.render('index', {
+            msg: '',
+            err: -1,
+            login: req.session.name ? 'ok' : 'no',
+            // isAdmin:"no"
+            isAdmin: req.session.isAdmin === 'true' ? 'yes' : 'no'
+        })
+    },
     logout: function (req, res) {
 
         req.session.destroy();

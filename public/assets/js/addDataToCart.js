@@ -1,11 +1,11 @@
 let totalPrice = 0;
-console.log("ddddddddddddddd");
-function showdata(items){
-   // console.log(items);
-   // data = JSON.parse(items);
-   let data = ``;
+
+function showdata(items) {
+    // console.log(items);
+    // data = JSON.parse(items);
+    let data = ``;
     items.forEach(element => {
-        data +=`
+        data += `
         <div class="col-md-4  col-sm-8 my-2">
                     <img src="${element.productImage}" class="w-100" alt="">
                 </div>
@@ -15,14 +15,10 @@ function showdata(items){
                     <a href="/products/cart/delete.html/${element.productID}" class="btn">Remove</a>
         </div>
         `
-        totalPrice+=Number(element.price);
+        totalPrice += Number(element.price);
 
     });
     document.getElementById('data').innerHTML = data;
-    document.getElementById('total').innerHTML = "$"+totalPrice;
+    document.getElementById('total').innerHTML = "$" + totalPrice;
 
 }
-
-// function showData(){
-
-// }

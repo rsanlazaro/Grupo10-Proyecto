@@ -9,12 +9,9 @@ const routersAdmin = require('./routers/admin');
 const routersUsers = require('./routers/users');
 //-----------------------------------------------
 
+//-------------------- SESSION Y COOKIES --------------------
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-// var MongoStore = require('connect-mongostore')(express);
-// const redis = require('redis');
-// const redisStore = require('connect-redis')(session);
-// const client  = redis.createClient();
 //-----------------------------------------------
 
 let bodyParser = require("body-parser");
@@ -61,7 +58,7 @@ const upload = multer({
 
 //check File Type
 function checkFileType(file, cb) {
-    //allowed exteion
+    //allowed extension
     const fileTypes = /jpeg|jpg|png|gif/;
 
     //check extetion
@@ -82,21 +79,19 @@ function checkFileType(file, cb) {
 
 // init app
 const app = express();
-const port = 3200;
+const port = 3000;
 
 //ejs
 app.set('view engine', 'ejs');
 
 //-----------------------------------------------
 app.use(cookieParser());
-// app.use(session({secret: "Shh, its a secret!"}));
 app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000000000, expires: new Date(Date.now() + 60000000000) } }))
 //-----------------------------------------------
 
 // public folder
 app.use(express.static('./public/upload'));
 app.use(express.static('./public/upload/usersImges'));
-// app.use(express.static('./upload'));
 app.use(express.static('./public'));
 app.use('/users/user/assets', express.static(__dirname + '/public/assets'));
 app.use('/users/assets', express.static(__dirname + '/public/assets'));
@@ -116,14 +111,6 @@ app.use('/products/productDetails.html', express.static('./public/upload'));
 app.use('/assets', express.static(__dirname + '/public/assets'));
 app.use('/upload', express.static(__dirname + '/public'));
 app.use('/products', express.static("./public/upload"));
-
-app.get('/', (req, res) => res.render('index', {
-    msg: '',
-    err: -1,
-    login: req.session.name ? 'ok' : 'no',
-    // isAdmin:"no"
-    isAdmin: req.session.isAdmin === 'true' ? 'yes' : 'no'
-}));
 
 app.use('/', routersMain);
 app.use('/products', routersProducts);
