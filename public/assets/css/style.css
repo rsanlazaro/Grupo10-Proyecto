@@ -214,7 +214,7 @@
 
 .header-bottom .main-menu ul li.hot::before {
   position: absolute;
-  content: "HOT";
+  content: "Nuevo";
   background: #c6a152 ;
   color: #fff;
   text-align: center;
@@ -592,7 +592,7 @@
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .slider-area .hero__img {
-    left: -83px;
+    left: -100px;
     bottom: 0px;
   }
 }
@@ -601,6 +601,12 @@
   .slider-area .hero__img {
     left: -179px;
     bottom: 0px;
+  }
+}
+
+@media only screen and (min-width: 1199px) {
+  .slider-area .hero__img img {
+    height: 600px;
   }
 }
 
@@ -640,7 +646,7 @@
   color: #1f2022;
   font-family: "Playfair Display", serif;
   text-transform: uppercase;
-  font-size: 100px;
+  font-size: 80client_reviewpx;
   font-weight: 700;
   line-height: 1.1;
   text-transform: capitalize;
@@ -822,6 +828,7 @@
   top: 50%;
   transform: translateY(-50%);
   right: 52px;
+  text-align: right;
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
@@ -839,11 +846,12 @@
 .category-area .single-category .category-img .category-caption h2 {
   color: #1f1f1f;
   text-transform: capitalize;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 700;
   line-height: 1.1;
   text-transform: capitalize;
   margin-bottom: 13px;
+  padding-bottom: 10px;
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
@@ -854,7 +862,7 @@
 
 @media (max-width: 767px) {
   .category-area .single-category .category-img .category-caption h2 {
-    font-size: 22px;
+    font-size: 16px;
     margin-bottom: 0px;
   }
 }
@@ -1550,7 +1558,7 @@
 .client_review {
   padding: 100px 0;
   text-align: center;
-  background-color: #B08EAD;
+  background-color: rgb(255, 219, 223);
   position: relative;
 }
 
@@ -1664,6 +1672,7 @@
 }
 
 .feature_part .feature_part_content p {
+  text-align: center;
   color: #707070;
 }
 

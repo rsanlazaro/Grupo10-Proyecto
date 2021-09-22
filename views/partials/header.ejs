@@ -21,10 +21,10 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/default.css">
-    <link rel="stylesheet" href="assets/css/mystyle.css" <!-- CSS main style add and edit from here -->
+    <link rel="stylesheet" href="assets/css/mystyle.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <title>Brillo de Luna Accesorios</title>
+    <title>Mady</title>
 
 </head>
 
@@ -63,7 +63,7 @@
                                             <li><a href="/home.html">Inicio</a></li>
                                             <li><a href="/about.html">Nosotros</a></li>
                                             <!-- <li><a href="Catagori.html">Catagori</a></li> -->
-                                            <li class="hot"><a href="#">Lo mas nuevo</a>
+                                            <li class="hot"><a href="#">Productos</a>
                                                 <ul class="submenu">
                                                     <li><a href="/products/productList.html"> Lista de Productos</a>
                                                     </li>
@@ -84,8 +84,8 @@
                             <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
                                 <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
 
-                                    <%if(login==="ok" ){%>
-                                        <li>
+                                    <%if(login==="ok") {%>
+                                        <li id="cart">
                                             <div class="shopping-card">
                                                 <span id="cart-count">
                                                     <%=itemsCount%>
@@ -103,7 +103,8 @@
 
                                                 <a class="dropdown-item" href="/users/user.html">Perfil</a>
 
-                                                <a class="dropdown-item" href="/home.html/logout">Cerrar Sesion</a>
+                                                <a class="dropdown-item" href="/home.html/logout">Cerrar
+                                                    Sesion</a>
 
                                             </div>
                                         </li>
