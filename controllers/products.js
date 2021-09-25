@@ -54,7 +54,7 @@ exports.controller = {
         if (req.session.is_Admin === 'true') {
             if (productArray.length == 0) {
                 res.render('adminProductControl', {
-                    msg: 'File Uploaded',
+                    msg: 'No message',
                     login: req.session.name ? 'ok' : 'no',
                     err: 0,
                     items: [],
@@ -63,7 +63,7 @@ exports.controller = {
                 });
             } else {
                 res.render('adminProductControl', {
-                    msg: 'File Uploaded',
+                    msg: 'No message',
                     login: req.session.name ? 'ok' : 'no',
                     isAdmin: req.session.isAdmin === 'true' ? 'yes' : 'no',
                     err: 0,

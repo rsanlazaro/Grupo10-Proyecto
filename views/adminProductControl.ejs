@@ -2,8 +2,10 @@
 <%- include("./partials/header.ejs") %>
 
     <main>
-        <!-- <%if (err==0) { %>
-            <div class="alert alert-success" role="alert">
+        <% console.log(msg) %> 
+        <% if (msg != "No message") {%> 
+            <%if (err==0) { %>
+                <div class="alert alert-success" role="alert" id="center">
                 <%= typeof msg !='undefined' ? msg : '' %>
             </div>
             <% }if (err==1) { %>
@@ -11,7 +13,8 @@
                 <div class="alert alert-danger" role="alert">
                     <%= typeof msg !='undefined' ? msg : '' %>
                 </div>
-                <% } %> -->
+                <% } %>
+                <% } %> 
         <section class="profile admin-product pt-40" style="background-color: #fbfbfb;">
             <div class="container">
                 <div class="card">
@@ -145,7 +148,7 @@
                     method: "delete"
 
                 })
-                location.href = '/admin/showproduct.html'
+                location.href = '/admin/showproduct.html';
             }
         </script>
         </body>

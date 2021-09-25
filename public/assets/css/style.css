@@ -1723,6 +1723,22 @@
 
 /*admin product*/
 
+.edit-Image{
+  padding-bottom: 40px;
+  margin: auto;
+}
+
+.center-edit{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+#center{
+  text-align: center;
+}
+
 .admin-product .nice-select {
   width: 100%;
 }

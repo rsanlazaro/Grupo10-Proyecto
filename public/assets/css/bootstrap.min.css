@@ -305,9 +305,23 @@ progress {
 [type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
-::-webkit-file-upload-button {
+.form-control::-webkit-file-upload-button {
   font: inherit;
   -webkit-appearance: button;
+  visibility: hidden;
+}
+.form-control::before{
+  content: "Cargar archivo";
+  display: inline-block;
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 0px 5px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font: inherit;
 }
 output {
   display: inline-block;

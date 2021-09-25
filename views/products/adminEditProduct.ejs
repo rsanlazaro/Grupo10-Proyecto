@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="/assets/css/mystyle.css"> <!-- CSS main style add and edit from here -->
     <link rel="stylesheet" href="/assets/css/style.css">
 
-    <title>Brillo de Luna Accesorios</title>
+    <title>Mady</title>
 
 </head>
 
@@ -73,8 +73,8 @@
 
                                             <li><a href="#">Admin Control</a>
                                                 <ul class="submenu">
-                                                    <li><a href="/admin/showproduct.html"> Product Control</a></li>
-                                                    <li><a href=""> Order Control</a></li>
+                                                    <li><a href="/admin/showproduct.html"> Control de productos</a></li>
+                                                    <li><a href=""> Control de órdenes</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -109,61 +109,65 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
-                                <h2>Product details</h2>
+                                <h2>Detalles del producto</h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <section class="product">
-            <div class="product-view card card-solid pt-70 pb-70">
-                <div class="container">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-5 p-5">
-                                <div id="ex1">
-                                    <img class="w-100" src="/<%=item.productImage%>" alt="">
-                                </div>
-                            </div>
-                            <div class="col-md-7 p-5">
-                                <h3>
-                                    <%=item.name%>
-                                </h3>
-                                <p class="mb-2 text-muted text-uppercase small">
-                                    <%=item.category%>
-                                </p>
-                                <div class="product-caption">
-                                    <div class="product-ratting">
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                        <i class="far fa-star low-star"></i>
-                                    </div>
-                                    <div class="price">
-                                        <ul>
-                                            <li>$<%=item.price%>
-                                            </li>
-                                            <!-- --------------------------- -->
-                                        </ul>
-                                    </div>
-                                </div>
-                                <p class="pt-1" style="text-align: justify;">
-
-                                    <%=item.description%>
-                                </p>
-                                <div class="mt-4">
-                                    <a class="btn btn-primary mr-3" id="addBTN"
-                                        href="/products/addtocart.html/<%=item.productID%>">
-                                        <i class="fas fa-cart-plus fa-lg mr-2"></i>
-                                        Add to Cart
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+        <section class="profile admin-product pt-40" style="background-color: #fbfbfb; padding-bottom: 40px;">
+            <div class="container">
+                <div class="edit-Image">
+                    <img class="center-edit" src="/upload/<%= item.productImage %> " alt="">
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-tag"></i> Editar información</h5>
                     </div>
-                    <!-- /.card-body -->
+                    <div class="card-body py-4">
+                        <form action="/products/add.html" method="POST" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="name">Nombre</label>
+                                    <input class="form-control" required="required" name="name" type="text" id="name" value= "<%= item.name %>"  >
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="category">Categoria</label>
+                                    <select required="required" name="category" id="category" name="category" required>
+                                        <option value="tazas" <% if (item.category == "tazas"){%>selected<% } %> >Tazas</option>
+                                        <option value="termos" <% if (item.category == "termos"){%>selected<% } %> >Termos</option>
+                                        <option value="gorras" <% if (item.category == "gorras"){%>selected<% } %> >Gorras</option>
+                                        <option value="playeras" <% if (item.category == "playeras"){%>selected<% } %> >Playeras</option>
+                                        <option value="llaveros" <% if (item.category == "llaveros"){%>selected<% } %> >Llaveros</option>
+                                        <option value="rompecabezas" <% if (item.category == "rompecabezas"){%>selected<% } %> >Rompecabezas</option>
+                                        <option value="especiales" <% if (item.category == "especiales"){%>selected<% } %> >Especiales</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="price">Precio</label>
+                                    <input class="form-control" required="required" name="price" type="text" id="price"
+                                        required value="<%= item.price %>">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="quantity">Cantidad</label>
+                                    <input class="form-control" name="quantity" type="text" id="quantity" required value="<%= item.quantity %>">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="product-image">Imagen</label>
+                                    <input class="form-control" name="image" type="file" id="product-image"
+                                        style="padding: 3px;" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="description">Descripción</label>
+                                    <input class="form-control" name="description" type="text" id="description"
+                                        required value="<%= item.description %>">
+                                </div>
+                            </div>
+                            <input class=" form-comtrol btn btn-primary profile-submit" type="submit" value="Guardar cambios">
+                            <a class=" form-comtrol btn btn-primary profile-submit" href="/admin/showproduct.html" style="float: right;">Regresar</a>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>

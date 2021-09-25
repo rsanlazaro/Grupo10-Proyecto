@@ -20,6 +20,7 @@ bodyParser = bodyParser.urlencoded({
     extended: false
 })
 
+const methodOverride = require('method-override');
 var home = require("./controllers/home");
 var admin = require("./controllers/admin");
 var user = require("./controllers/user");
@@ -83,6 +84,13 @@ const port = 3000;
 
 //ejs
 app.set('view engine', 'ejs');
+
+// method override
+app.use(methodOverride('_method'));
+
+// Post
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 //-----------------------------------------------
 app.use(cookieParser());
