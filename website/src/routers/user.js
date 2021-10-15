@@ -10,7 +10,6 @@ const guestMid = require('../middlewares/guestMid');
 const authMid = require('../middlewares/authMid');
 const multerMid = require('../middlewares/multerMid');
 
-
 //---------se muestra formulario de login----------
 router.get('/login', guestMid ,userController.login);
 

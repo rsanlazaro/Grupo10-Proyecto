@@ -9,9 +9,10 @@
  },
  {
   "id": 2,
-  "name": "jose maria",
+  "name": "jose maria pedro",
   "email": "jose_@hotmail.com",
-  "password": "$2a$10$R2bdtXc3k07dKFWjhYDKLOUcIuyMNdaogVDO7AFoyjUZwhHH0vB7W",
+  "password": "$2a$10$vAd1IKQJ9hVYxiC1/SnujebqvMrCM33lCx.CQNzsm0EgbjjNndRzu",
+  "role": "cliente",
   "imagen": "1634258575585_img.jpg"
  }
 ]

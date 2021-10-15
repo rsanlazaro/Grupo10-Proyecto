@@ -56,15 +56,13 @@ let userController = {
               res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 }) 
             }
            return res.redirect('/user/profile', {
-			    user: req.session.userLogged,
-			    msg: false});
+			    user: req.session.userLogged});
 
     },
 
     profile: (req, res) =>{
         return res.render('user/profile',{
-		user: req.session.userLogged,
-		msg: false
+		user: req.session.userLogged
 		});
     },
 
@@ -120,8 +118,8 @@ let userController = {
        }
 	 
 	   if(req.body.password != req.body.password_confirmation) {
-		return  res.render('user/profile', {
-			errors: {
+		return res.render('user/profile', {
+			  errors: {
 				password_confirmation_2: {
 					msg: 'La contraseña no es igual'
 				}
@@ -129,21 +127,23 @@ let userController = {
 			oldData: req.body,
 			user: req.session.userLogged
 		});
-	 }
+	}
 	
-	 User.update(
+	User.update(
 		{
 		    id: parseInt(req.params.id),
 		    name: req.body.name,
             email: req.body.email,
 			password: bcryptjs.hashSync(req.body.password, 10),
-			imagen: req.file.filename
-		 
+			role: req.session.userLogged.role,
+			imagen: req.file == undefined? User.findByField('email', req.body.email).imagen : req.file.filename
 	   })
-	   return res.render('/user/profile', { user: req.session.userLogged, 
-		                                    msg: true})
-											
+	   
+	    return res.render('user/profile',{
+		user: req.session.userLogged,
+		msg: true
+		});					
 	}
 }
-//hola
+
 module.exports = userController;

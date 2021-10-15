@@ -9,5 +9,13 @@
   ],
   "userID": 1,
   "status": "enProceso"
+ },
+ {
+  "cartID": 2,
+  "productsID": [
+   "2"
+  ],
+  "userID": 2,
+  "status": "enProceso"
  }
 ]
