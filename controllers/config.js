@@ -1,3 +1,0 @@
-exports.controller = {
-    mode: 'production'
-}
