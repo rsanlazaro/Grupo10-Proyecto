@@ -1,0 +1,17 @@
+[
+ {
+  "id": 1,
+  "name": "Alejandra",
+  "email": "aleguamen_@hotmail.com",
+  "password": "$2a$10$1vU.ySu1iAt/7LptWxCrPueQxSR0kbB3MoHwQD5w.KUrs1xA0SKVu",
+  "role": "administrador",
+  "imagen": null
+ },
+ {
+  "id": 2,
+  "name": "jose maria",
+  "email": "jose_@hotmail.com",
+  "password": "$2a$10$R2bdtXc3k07dKFWjhYDKLOUcIuyMNdaogVDO7AFoyjUZwhHH0vB7W",
+  "imagen": "1634258575585_img.jpg"
+ }
+]

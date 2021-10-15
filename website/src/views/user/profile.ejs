@@ -1,0 +1,135 @@
+<!doctype html>
+<%- include("../partials/header.ejs") %>
+<!-- start popup-->
+<div class="popup first-popup">
+    <div class="inner">
+       <div class="container">
+         <div class="row"> 
+            <div class="col-md-6 text-center p-5">
+                <video src="" id="video-screen" autoplay="true" class="mb-3" width="100%" style="background-color: #efefef; border-radius: 10px; border: 3px dashed #555;"></video>
+                <button id="take-screenshot" class="btn btn-primary">Take Screen Shot</button>
+                <button id="stop" class="btn btn-primary">Stop</button>
+            </div>
+            <div class="col-md-6 text-center p-5">
+                <canvas id="show-screenshot" style="display: none;"></canvas>
+                <div id="img-container" style="display: none; width: 100%;">
+                    <img src="" alt="" class="mb-3" id="token-img" style="width: 100%; border-radius: 10px; border: 3px dashed #555;"/>
+                    <button id='Download-Btn' class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+       </div>
+        <i class="exit fa fa-times"></i>
+    </div>
+ </div>
+
+    <main>
+        <section class="profile pt-70 pb-70" style="background-color: #fbfbfb;">
+           
+            <div class="container"> 
+                    <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-user"></i> Edit Information</h5>
+                    </div>
+                    <% if (locals.msg) {%> 
+                        <div class="alert alert-success" role="alert" id="center">
+                            Archivo cargado exitosamente
+                        </div>
+                    <% } %> 
+                    <div class="card-body py-4">
+                        <form action="/user/profile/actualizar/<%= locals.userLogged.id %>/?_method=PUT" method="POST" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-4 text-center">
+                                    <% if (locals.errors && errors.image) { %>
+                                        <div class="text-danger">
+                                            <%= errors.image.msg %> 
+                                        </div>
+                                    <% } %> 
+                                    <div class="avatar-upload">
+                                        <div class="avatar-edit">
+                                            <input type="file" id="imageUpload"
+                                             name="image"
+                                             <%if(user.imagen == null){%>
+                                                src= "/assets/img/hero/avatar5.png"
+                                                <%}else{%>  
+                                                    src="/assets/img/profile/<%=user.imagen%>"
+                                                <%}%>
+                                             alt="" />
+                                            <label for="imageUpload">
+                                               <i class="fa fa-pencil-alt"></i>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="avatar-preview">
+                                            <img class="myImg" 
+                                             id="imagePreview"
+                                                <%if(user.imagen == null){%>
+                                                src= "/assets/img/hero/avatar5.png"
+                                                <%}else{%>  
+                                                    src="/assets/img/profile/<%=user.imagen%>"
+                                                <%}%>
+                                             alt="" />
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary p-4 mt-3 show-popup" data-popup='first-popup'><i class="fa fa-camera"></i> Camera</button>
+                                </div>
+                                <div class="col-md-8 pt-4">
+                                    <div class="form-group">
+                                        <label for="name">Nombre</label>
+                                        <input class="form-control" required="required" name="name" type="text" id="name" 
+                                        value= "<%= user.name %>">
+                                    </div>
+                                    <% if (locals.errors && errors.name) { %>
+                                        <div class="text-danger">
+                                            <%= errors.name.msg %> 
+                                        </div>
+                                    <% } %>  
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input class="form-control" required="required" name="email" type="email" id="email" value= "<%= user.email %>" readonly>
+                                    </div>
+                                    <% if (locals.errors && errors.email) { %>
+                                        <div class="text-danger">
+                                            <%= errors.email.msg %> 
+                                        </div>
+                                    <% } %>  
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input class="form-control" required="required" name="password" type="password" 
+                                         id="password" value= "<%= user.password %>">
+                                         <% if (locals.errors && errors.password) { %>
+                                            <div class="text-danger">
+                                                <%= errors.password.msg %> 
+                                            </div>
+                                        <% } %>  
+                                    <div class="form-group">
+                                        <label for="password_confirmation">Confirm Password</label>
+                                        <input class="form-control" required="required" name="password_confirmation" 
+                                        type="password" id="password_confirmation" value= "<%= user.password %>">
+                                        <% if (locals.errors && errors.password_confirmation) { %>
+                                            <div class="text-danger">
+                                                <%= errors.password_confirmation.msg %> 
+                                            </div>
+                                        <% } %>  
+                                        <%if(locals.errors && errors.password_confirmation_2) { %>
+                                            <div class="text-danger">
+                                              <%= errors.password_confirmation_2.msg %>
+                                             </div>
+                                             <%}%>  
+                                    </div>
+                                    <input class="btn btn-primary profile-submit" type="submit" value="Edit"
+                                    >
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <%- include("../partials/footer.ejs") %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/assets/js/FileSaver.min.js"></script>
+    <script src="/assets/js/script.js"></script>
+    </body>
+</html>

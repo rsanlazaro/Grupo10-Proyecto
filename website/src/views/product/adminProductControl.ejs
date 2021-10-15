@@ -1,0 +1,168 @@
+<!doctype html>
+<%- include("../partials/header.ejs") %>
+
+    <main>
+        <section class="profile admin-product pt-40" style="background-color: #fbfbfb;">
+            <div class="container">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-tag"></i> Información de Productos</h5>
+                    </div>
+                    <div class="card-body py-4">
+                    <% if (locals.productErrors) {%> 
+                            <div class="alert alert-danger" role="alert">
+                                 Rellene correctamente  
+                            </div>
+                            <% } %>
+                            <% if (locals.msg) {%> 
+                                <div class="alert alert-success" role="alert" id="center">
+                                    Archivo cargado exitosamente
+                                </div>
+                            <% } %> 
+                     <form action="/product/newProduct" method="POST" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="name">Nombre</label>
+                                    <input class="form-control" value= "<%= locals.oldData ? oldData.name : null %>" required="required" name="name" type="text" id="name">
+                                    <% if (locals.productErrors && productErrors.name) { %>
+                                        <div class="text-danger">
+                                            <%= productErrors.name.msg %> 
+                                        </div>
+                                    <% } %>   
+                                </div> 
+                                <div class="form-group col-md-6">
+                                    <label for="category">Categoria</label>
+                                        <select 
+                                        name="category" 
+                                        id= "category">
+                                       <option value="">Selecciona una categoría</option>
+                                        <% 
+                                            let categories = ['tazas', 'termos', 'gorrras', 'playeras', 'llaveros', 'rompecabezas', 'especiales'];
+                                        %>
+                                        <% for (const oneCategory of categories) { %>
+                                            <option 
+                                                value="<%=oneCategory%>"
+                                                <%= locals.oldData && (oneCategory === oldData.category) ? 'selected' : null %> 
+                                            > <%= oneCategory %> </option>
+                                        <% } %>
+                                    </select>
+                                    <% if (locals.productErrors && productErrors.category) { %>
+                                        <div class="text-danger">
+                                            <%= productErrors.category.msg %> 
+                                        </div>
+                                    <% } %>    
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="price">Precio</label>
+                                    <input class="form-control" value= "<%= locals.oldData ? oldData.price : null %>" required="required" name="price" type="text" id="price"
+                                        required>
+                                        <% if (locals.productErrors && productErrors.price) { %>
+                                            <div class="text-danger">
+                                                <%= productErrors.price.msg %> 
+                                            </div>
+                                        <% } %>    
+                                </div>
+                                    <div class="form-group col-md-6">
+                                    <label for="quantity">Cantidad</label>
+                                    <input class="form-control" value= "<%= locals.oldData ? oldData.quantity : null %>" name="quantity" type="text" id="quantity" required>
+                                    <% if (locals.productErrors && productErrors.quantity) { %>
+                                        <div class="text-danger">
+                                            <%= productErrors.quantity.msg %> 
+                                        </div>
+                                    <% } %>    
+                                </div>
+                                 <div class="form-group col-md-6">
+                                    <label for="product-image">Imagen</label>
+                                    <input class="form-control" name="image" type="file" id="product-image"
+                                        style="padding: 3px;">
+                                        <% if (locals.productErrors && productErrors.image) { %>
+                                            <div class="text-danger">
+                                                <%= productErrors.image.msg %> 
+                                            </div>
+                                        <% } %> 
+                                </div>
+                                    <div class="form-group col-md-6">
+                                    <label for="description">Descripción</label>
+                                    <input class="form-control" value= "<%= locals.oldData ? oldData.description : null %>" name="description" type="text" id="description"
+                                        required>
+                                        <% if (locals.productErrors && productErrors.description) { %>
+                                            <div class="text-danger">
+                                                <%= productErrors.description.msg %> 
+                                            </div>
+                                        <% } %>    
+                                 </div>
+                             </div>
+                            <input class=" form-comtrol btn btn-primary profile-submit" type="submit" value="Agregar">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="profile admin-product pt-40 pb-40" style="background-color: #fbfbfb;">
+            <div class="container">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-tags"></i> Lista de Productos</h5>
+                    </div>
+                    <div class="card-body py-4">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Categoria</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Controles</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% items.forEach(function(item){ %>
+                                    <tr>
+                                        <td>
+                                            <%=item.productID %>
+                                        </td>
+                                        <td>
+                                            <a class="editProduct" href="/product/adminEditProduct/<%=item.productID%>">
+                                                <%=item.name %>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <%=item.category %>
+                                        </td>
+                                        <td>
+                                            <%=item.price %>
+                                        </td>
+                                        <td>
+                                            <%=item.quantity %>
+                                        </td>
+                                        <td>
+                                            <form action="/product/delete/<%= item.productID %>/?_method=DELETE" method="POST">
+                                                <input type="hidden" name="id" />
+                                                <input type="submit" id="<%= item.productID %>" value="Eliminar"/>
+                                                </form>
+                                        </td>
+                                    </tr>
+
+                                    <%})%>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Categoria</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Controles</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <%- include("../partials/footer.ejs") %>
+        </body>
+        </html>

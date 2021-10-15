@@ -1,0 +1,103 @@
+<!doctype html>
+
+<%- include("../partials/header.ejs") %>
+
+    <main>
+        <div class="slider-area ">
+            <!-- Mobile Menu -->
+            <div class="single-slider slider-height2 d-flex align-items-center"
+                data-background="/assets/img/hero/category.jpg"
+                style="background-image: url(&quot;/assets/img/hero/category.jpg&quot;);">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center">
+                                <h2>Lista de productos</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Latest Products Start -->
+        <section class="latest-product-area pt-80 pb-100">
+            <div class="container">
+                <div class="row product-btn d-flex justify-content-end align-items-end">
+                    <!-- Section Tittle -->
+                    <div class="col-xl-3 col-lg-5 col-md-5">
+                        <div class="section-tittle mb-30">
+                            <h2>Productos</h2>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-7 col-md-7">
+                        <div class="properties__button f-right">
+                            <!--Nav Button  -->
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
+                                        href="#nav-home" role="tab" aria-controls="nav-home"
+                                        aria-selected="true">Todo</a>
+                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#tazas"
+                                        role="tab" aria-controls="nav-profile" aria-selected="false">Tazas</a>
+                                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#termos"
+                                        role="tab" aria-controls="nav-contact" aria-selected="false">Termos</a>
+                                    <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#gorras"
+                                        role="tab" aria-controls="nav-contact" aria-selected="false">Gorras</a>
+                                    <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#playeras"
+                                        role="tab" aria-controls="nav-contact" aria-selected="false">Playeras</a>
+                                    <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#llaveros"
+                                        role="tab" aria-controls="nav-contact" aria-selected="false">Llaveros</a>
+                                    <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab"
+                                        href="#rompecabezas" role="tab" aria-controls="nav-contact"
+                                        aria-selected="false">Rompecabezas</a>
+                                    <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#especiales"
+                                        role="tab" aria-controls="nav-contact" aria-selected="false">Especiales</a>
+                                </div>
+                             </nav>     
+                            <!--End Nav Button  -->
+                        </div>                      
+                    </div>
+                </div>
+                <% products.forEach(item => { %>
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="single-product mb-60">
+                            <div class="product-img">
+                                <img src="/assets/img/products/<%=item.productImage%>" alt=""  width="250" height="250">
+                                <div class="new-product">
+                                    <span><%=item.category%></span>
+                                </div>
+                            </div>
+                            <div class="product-caption">
+                                <div class="product-ratting">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                    <i class="far fa-star low-star"></i>
+                                </div>
+                                <h4><a href="/product/productDetails/<%=item.productID%>" id="<%=item.productID%>" class='details'><%=item.name%></h4>
+                                <div class="price">
+                                    <ul>
+                                        <li><%=item.price%></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>            `
+               <%})%>
+            </div>
+        </section>
+        <!-- Latest Products End -->
+    </main>
+    
+    <%- include("../partials/footer.ejs") %>
+
+        <!--<script src="/assets/js/ObtenerProductos.js"></script> -->
+        
+
+        <script type= "text/javascript">      
+        </script>
+        
+        </body>
+
+        </html>

@@ -1,0 +1,133 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/flaticon.css">
+    <link rel="stylesheet" href="/assets/css/slicknav.css">
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="/assets/css/slick.css">
+    <link rel="stylesheet" href="/assets/css/nice-select.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="/assets/css/mystyle.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <title>Mady</title>
+
+</head>
+
+<body>
+
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="/assets/img/bdl/logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader end -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area">
+            <div class="main-header ">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
+                                <div class="logo">
+                                    <a href="/"><img src="/assets/img/bdl/logo.png" alt="" width="80%"></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-8 col-md-7 col-sm-5">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/">Inicio</a></li>
+                                            <li><a href="/about">Nosotros</a></li>
+                                            <!-- <li><a href="Catagori.html">Catagori</a></li> -->
+                                            <li class="hot"><a href="#">Productos</a>
+                                                <ul class="submenu">
+                                                    <li><a href="/product/productList"> Lista de Productos</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <%if(locals.isAdmin){%>
+                                                <li><a href="#">Admin Control</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="/product/adminProductControl"> Control de productos</a></li>
+                                                        <li><a href="">Control de órdenes</a></li>
+                                                    </ul>
+                                                </li>
+                                                <%}%>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
+                                <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
+                                    <%if(locals.isLogged){%>
+                                        <li id="cart">
+                                            <div class="shopping-card">
+                                                <span id="cart-count">
+                                                    <%=itemsCount%>
+                                                </span>
+                                                <%if(locals.carrito){%>
+                                                  <a class="p-2" href="/product/cart/<%=carrito.cartID%>"><i
+                                                    class="fas fa-shopping-cart"></i></a>
+                                                <%}else{%>
+                                                  <a class="p-2" href="/product/cart/0"><i
+                                                    class="fas fa-shopping-cart"></i></a>    
+                                                <%}%>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item dropdown user-control">
+                                            <a class="nav-link dropdown-toggle no-cursor" id="dropdown05"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                                    class='fa fa-user'></i></a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdown05">
+
+
+                                                <a class="dropdown-item" href="/user/profile/<%=locals.userLogged.id%>">Perfil</a>
+
+                                                <a class="dropdown-item" href="/user/logout">Cerrar
+                                                    Sesion</a>
+
+                                            </div>
+                                        </li>
+                                        <%}else{%>
+
+                                            <li class="d-none d-lg-block"> <a href="/user/login"
+                                                    class="btn header-btn">Iniciar Sesion</a>
+                                            </li>
+                                            <%}%>
+                                </ul>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
