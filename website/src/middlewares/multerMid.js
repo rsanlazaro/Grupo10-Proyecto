@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
 })
 
   const multerMid = multer({ //multer settings
-    storage: storage, //['.jpg', '.png', '.gif']
+    storage: storage, 
     fileFilter: function (req, file, callback) {
         let ext = path.extname(file.originalname);
 		let acceptedExtensions = ['.jpg', '.png', '.gif'];
