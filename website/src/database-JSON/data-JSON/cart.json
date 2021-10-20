@@ -17,5 +17,21 @@
   ],
   "userID": 2,
   "status": "enProceso"
+ },
+ {
+  "cartID": 3,
+  "productsID": [
+   "2"
+  ],
+  "userID": 3,
+  "status": "enProceso"
+ },
+ {
+  "cartID": 4,
+  "productsID": [
+   "3"
+  ],
+  "userID": 6,
+  "status": "enProceso"
  }
 ]

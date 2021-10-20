@@ -5,8 +5,7 @@
         <div class="slider-area ">
             <!-- Mobile Menu -->
             <div class="single-slider slider-height2 d-flex align-items-center"
-                data-background="/assets/img/hero/category.jpg"
-                style="background-image: url(&quot;assets/img/hero/category.jpg&quot;);">
+                style="background-color: #9dc0df;">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
@@ -36,13 +35,13 @@
                                     <%=item.category%>
                                 </p>
                                 <div class="product-caption">
-                                    <div class="product-ratting">
+                                    <!-- <div class="product-ratting">
                                         <i class="far fa-star"></i>
                                         <i class="far fa-star"></i>
                                         <i class="far fa-star"></i>
                                         <i class="far fa-star low-star"></i>
                                         <i class="far fa-star low-star"></i>
-                                    </div>
+                                    </div> -->
                                     <div class="price">
                                         <ul>
                                             <li>$<%=item.price%>
@@ -57,7 +56,11 @@
                                 </p>
                                 <div class="mt-4">
                                     <a class="btn btn-primary mr-3" id="addBTN"
-                                        href="/product/addtocart/<%=item.productID%>">
+                                    <%if(!locals.isAdmin){%>
+                                        href="/product/addtocart/<%=item.productID%>"
+                                        <% } else {%>
+                                            href="#" 
+                                            <% } %> >
                                         <i class="fas fa-cart-plus fa-lg mr-2"></i>
                                         Agregar al carrito
                                     </a>

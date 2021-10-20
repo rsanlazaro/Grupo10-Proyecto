@@ -1,11 +1,29 @@
 [
  {
-  "productID": 2,
-  "name": "termo",
-  "category": "tazas",
-  "price": "20",
-  "quantity": "20",
-  "description": "ALW",
-  "productImage": "1633558319717_img.jpg"
+  "productID": 3,
+  "name": "Gantt",
+  "category": "rompecabezas",
+  "price": "232.80",
+  "quantity": "1",
+  "description": "Gráfica de Gantt",
+  "productImage": "1634755241421_img.PNG"
+ },
+ {
+  "productID": 4,
+  "name": "Gráfica de barras",
+  "category": "playeras",
+  "price": "125.00",
+  "quantity": "10",
+  "description": "Este es un producto ideal para dedos",
+  "productImage": "1634755899361_img.PNG"
+ },
+ {
+  "productID": 5,
+  "name": "Captura de pantalla",
+  "category": "termos",
+  "price": "1000.00",
+  "quantity": "2",
+  "description": "Este no es un producto de prueba",
+  "productImage": "1634756198512_img.png"
  }
 ]

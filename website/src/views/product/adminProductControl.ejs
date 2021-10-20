@@ -37,7 +37,7 @@
                                         id= "category">
                                        <option value="">Selecciona una categoría</option>
                                         <% 
-                                            let categories = ['tazas', 'termos', 'gorrras', 'playeras', 'llaveros', 'rompecabezas', 'especiales'];
+                                            let categories = ['tazas', 'termos', 'gorras', 'playeras', 'llaveros', 'rompecabezas', 'especiales'];
                                         %>
                                         <% for (const oneCategory of categories) { %>
                                             <option 
@@ -131,7 +131,7 @@
                                             <%=item.category %>
                                         </td>
                                         <td>
-                                            <%=item.price %>
+                                            $<%=item.price %>
                                         </td>
                                         <td>
                                             <%=item.quantity %>

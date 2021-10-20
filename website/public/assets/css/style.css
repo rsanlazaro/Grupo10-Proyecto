@@ -35,7 +35,7 @@
   position: relative;
   border-style: solid;
   border-width: 3px;
-  border-top-color: #c6a152 ;
+  border-top-color: #9dc0df ;
   border-bottom-color: transparent;
   border-left-color: transparent;
   border-right-color: transparent;
@@ -52,7 +52,7 @@
 }
 
 .preloader .preloader-circle2 {
-  border-top-color: #c29480;
+  border-top-color: #e4a4c3;
 }
 
 .preloader .preloader-img {
@@ -205,7 +205,7 @@
 }
 
 .header-bottom .main-menu ul li:hover > a {
-  color: #c6a152 ;
+  color: #9dc0df ;
 }
 
 .header-bottom .main-menu ul li.hot {
@@ -215,7 +215,7 @@
 .header-bottom .main-menu ul li.hot::before {
   position: absolute;
   content: "Nuevo";
-  background: #c6a152 ;
+  background: #9dc0df ; 
   color: #fff;
   text-align: center;
   border-radius: 8px;
@@ -244,7 +244,7 @@
   opacity: 0;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.05);
   padding: 17px 0;
-  border-top: 5px solid #c6a152 ;
+  border-top: 5px solid #9dc0df ;
   -webkit-transition: all 0.2s ease-out 0s;
   -moz-transition: all 0.2s ease-out 0s;
   -ms-transition: all 0.2s ease-out 0s;
@@ -265,7 +265,7 @@
 }
 
 .header-bottom .main-menu ul ul.submenu > li > a:hover {
-  color: #c6a152 ;
+  color: #9dc0df ;
   background: none;
 }
 
@@ -390,7 +390,7 @@
 
 .header-bottom .header-right .user-control .dropdown-menu,
 .header-bottom .header-right .user-control .dropdown-menu.show {
-  border-top: 5px solid #c6a152 ;
+  border-top: 5px solid #9dc0df ;
   top: 22px !important;
   left: auto !important;
   right: 0 !important;
@@ -408,6 +408,9 @@
     position: absolute;
     top: 12px;
     right: 85px;
+  }
+  .fix-card{
+    padding-top: 15px;
   }
 }
 
@@ -447,7 +450,7 @@
 }
 
 .slicknav_menu .slicknav_icon-bar {
-  background-color: #c6a152  !important;
+  background-color: #9dc0df  !important;
 }
 
 .slicknav_nav {
@@ -459,18 +462,18 @@
 }
 
 .header-area .slicknav_btn {
-  top: -30px;
+  top: -40px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .header-area .slicknav_btn {
-    top: -40px;
+    top: -60px;
   }
 }
 
 .slicknav_menu .slicknav_nav a:hover {
   background: transparent;
-  color: #c6a152 ;
+  color: #9dc0df ;
 }
 
 .slicknav_menu {
@@ -530,7 +533,7 @@
   background-size: cover;
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+@media only screen and (min-width: 1200px){
   .slider-height {
     min-height: 700px;
   }
@@ -637,7 +640,7 @@
 
 .slider-area .hero__caption span {
   font-family: "Yellowtail", cursive;
-  color: #c29480;
+  color: #e4a4c3;
   font-size: 40px;
   display: inline-block;
 }
@@ -670,6 +673,14 @@
 @media (max-width: 767px) {
   .slider-area .hero__caption h1 {
     font-size: 35px;
+    line-height: 1.2;
+    margin-bottom: 26px;
+  }
+}
+
+@media (max-width: 300px) {
+  .slider-area .hero__caption h1 {
+    font-size: 25px;
     line-height: 1.2;
     margin-bottom: 26px;
   }
@@ -723,7 +734,7 @@
   width: 60px;
   border-radius: 50%;
   cursor: pointer;
-  background: #c6a152 ;
+  background: #9dc0df ;
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
   transition: 0.4s;
@@ -844,9 +855,9 @@
 }
 
 .category-area .single-category .category-img .category-caption h2 {
-  color: #1f1f1f;
+  color: #000000;
   text-transform: capitalize;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 700;
   line-height: 1.1;
   text-transform: capitalize;
@@ -856,11 +867,11 @@
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .category-area .single-category .category-img .category-caption h2 {
-    font-size: 26px;
+    font-size: 20px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 333px) {
   .category-area .single-category .category-img .category-caption h2 {
     font-size: 16px;
     margin-bottom: 0px;
@@ -870,11 +881,11 @@
 .category-area .single-category .category-img .category-caption .best a {
   color: #000000;
   text-transform: capitalize;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 1.1;
   text-transform: capitalize;
-  background: #ffce25;
+  background: #9dc0df;
   padding: 13px 24px;
   border-radius: 30px;
   display: inline-block;
@@ -895,7 +906,7 @@
 
 .category-area .single-category .category-img .category-caption .collection {
   display: block;
-  color: #0071fe;
+  color: #ffce25;
   text-transform: capitalize;
   font-size: 30px;
   line-height: 1.1;
@@ -988,7 +999,7 @@
 }
 
 .latest-product-area .single-product .product-img .new-product span {
-  background: #c6a152 ;
+  background: #9dc0df ;
   padding: 3px 16px;
   border-radius: 30px;
   color: #fff;
@@ -1001,7 +1012,7 @@
 }
 
 .latest-product-area .single-product h4 a:hover {
-  color: #c6a152 ;
+  color: #9dc0df ;
 }
 
 .latest-product-area .single-product .product-caption .product-ratting i,
@@ -1025,7 +1036,7 @@
 
 .latest-product-area .single-product .product-caption .price ul li.discount,
 .product .card .product-caption .price ul li.discount {
-  color: #c6a152 ;
+  color: #9dc0df ;
   text-decoration: line-through;
 }
 
@@ -1054,7 +1065,7 @@
 
 .latest-product-area .nav-tabs .nav-item.show .nav-link,
 .latest-product-area .nav-tabs .nav-link.active {
-  color: #c6a152 ;
+  color: #9dc0df ;
 }
 
 .latest-product-area .nav-tabs .nav-item {
@@ -1317,7 +1328,7 @@
 }
 
 .footer-area .footer-tittle ul li a:hover {
-  color: #c29480;
+  color: #e4a4c3;
   padding-left: 5px;
 }
 
@@ -1344,12 +1355,12 @@
   border: 0;
   cursor: pointer;
   padding: 13px 22px;
-  background: #c6a152 ;
+  background: #9dc0df ;
   line-height: 1;
 }
 
 .footer-area .info.error {
-  color: #c6a152 ;
+  color: #9dc0df ;
 }
 
 .footer-copy-right {
@@ -1386,11 +1397,11 @@
 }
 
 .footer-copy-right p i {
-  color: #c29480;
+  color: #e4a4c3;
 }
 
 .footer-copy-right p a {
-  color: #c29480;
+  color: #e4a4c3;
 }
 
 .footer-social a i {
@@ -1405,7 +1416,7 @@
 }
 
 .footer-social a i:hover {
-  color: #c29480;
+  color: #e4a4c3;
 }
 
 /*end footer*/
@@ -1414,7 +1425,7 @@
 /*start profile page*/
 
 .profile .card-header {
-  background-color: #c29480;
+  background-color: #e4a4c3;
 }
 
 .profile .card-header h5 {
@@ -1530,7 +1541,7 @@
 
 .about_us .about_us_content h5 {
   font-size: 20px;
-  color: #c29480;
+  color: #e4a4c3;
   font-weight: 400;
 }
 

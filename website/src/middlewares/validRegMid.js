@@ -24,7 +24,7 @@ const validRegMid = [
             
             let fileExtension =  path.extname(file.originalname);
             
-            if (!acceptedExtensions.includes(fileExtension)) {
+            if (!acceptedExtensions.includes(fileExtension.toLowerCase())) {
                 throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
             }
         }

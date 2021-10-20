@@ -45,7 +45,9 @@ app.use('/product', routersProducts);
 app.use('/user', routersUsers);
 
 //---RUTAS PARA EL ERROR 404-------
-
+app.use((req,res,next) => {
+   res.status(404).render('not-found');
+})
 
 //----SE INICIALIZA EL SERVIDOR------
 app.listen(port, () => console.log(`Server started on port ${port}`))

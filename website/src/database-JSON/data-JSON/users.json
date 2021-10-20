@@ -14,5 +14,37 @@
   "password": "$2a$10$vAd1IKQJ9hVYxiC1/SnujebqvMrCM33lCx.CQNzsm0EgbjjNndRzu",
   "role": "cliente",
   "imagen": "1634258575585_img.jpg"
+ },
+ {
+  "id": 3,
+  "name": "Rafael Alberto Pérez San Lázaro",
+  "email": "rsanlazaro@hotmail.com",
+  "password": "$2a$10$e/YxIO1nS7o7w/WUb5bB8uHq1Gm.FZOhfgDnk3r560V29HEqgbET6",
+  "role": "administrador",
+  "imagen": null
+ },
+ {
+  "id": 4,
+  "name": "Rafael Alberto Pérez San Lázaro",
+  "email": "rafa@hotmail.com",
+  "password": "$2a$10$NcLJ2oz5gGzagDUSFlcK8..e1JhO33Qwl7Wt4jPaK6ZqyOx2aoumy",
+  "role": "cliente",
+  "imagen": null
+ },
+ {
+  "id": 5,
+  "name": "Juan Perez",
+  "email": "juanperez@hotmail.com",
+  "password": "$2a$10$RoFp9jUnSbRfO2SUPIpLxuweiQiQbnDX5ZXFHPRJp9j/uL67l667u",
+  "role": "cliente",
+  "imagen": null
+ },
+ {
+  "id": 6,
+  "name": "Rafael Alberto Pérez San Lázaro",
+  "email": "rafaelalberto@hotmail.com",
+  "password": "$2a$10$Jc17lX9cj.IManxZGCN.UOzJN0cHppL0U4uFusFboaWZVW9NeekcC",
+  "role": "cliente",
+  "imagen": null
  }
 ]

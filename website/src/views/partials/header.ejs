@@ -70,10 +70,10 @@
                                                 </ul>
                                             </li>
                                             <%if(locals.isAdmin){%>
-                                                <li><a href="#">Admin Control</a>
+                                                <li><a href="#">Control de administrador</a>
                                                     <ul class="submenu">
                                                         <li><a href="/product/adminProductControl"> Control de productos</a></li>
-                                                        <li><a href="">Control de órdenes</a></li>
+                                                        <!-- <li><a href="">Control de órdenes</a></li> -->
                                                     </ul>
                                                 </li>
                                                 <%}%>
@@ -84,6 +84,7 @@
                             <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
                                 <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
                                     <%if(locals.isLogged){%>
+                                        <%if(!locals.isAdmin){%>
                                         <li id="cart">
                                             <div class="shopping-card">
                                                 <span id="cart-count">
@@ -98,6 +99,7 @@
                                                 <%}%>
                                             </div>
                                         </li>
+                                        <%}%>
                                         <li class="nav-item dropdown user-control">
                                             <a class="nav-link dropdown-toggle no-cursor" id="dropdown05"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
@@ -114,9 +116,13 @@
                                         </li>
                                         <%}else{%>
 
-                                            <li class="d-none d-lg-block"> <a href="/user/login"
-                                                    class="btn header-btn">Iniciar Sesion</a>
+                                            <li class="d-none d-lg-block-2"> <a href="/user/login"
+                                                    class="btn header-btn">Iniciar sesión</a>
                                             </li>
+
+                                            <li class="login-icon user-control"> <a href="/user/login"><i class='fa fa-user'></i></a>
+                                            </li>
+
                                             <%}%>
                                 </ul>
                             </div>

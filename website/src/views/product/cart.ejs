@@ -7,11 +7,11 @@
             <div class="row">
                 <div class="col-md-7  col-sm-8">
                     <div class="row justify-content-between  pb-2">
-                        <div class="col-md-3 col-sm-8">
-                            <h2>My Bag</h2>
+                        <div class="col-md-5 col-sm-8">
+                            <h2>Mi carrito</h2>
                         </div>
                         <div class="col-md-5 col-sm-8">
-                            <h6 class=" m-0 pt-3 text-muted">Item Are Reserved For 60Min</h6>
+                            <h6 class=" m-0 pt-3 text-muted"></h6>
                         </div>
                     </div>
                     <div class="row py-5 border-top"  id="data">
@@ -23,7 +23,7 @@
                                             <div class="col-md-8 pt-4  col-sm-8">
                                                 <h3 class="price"><%=item.price%></h3>
                                                 <p class="py-2"><%=item.description%></p>
-                                                <a href="/product/cart/delete/<%=item.productID%>" class="btn">Remove</a>
+                                                <a href="/product/cart/delete/<%=item.productID%>" class="btn">Eliminar</a>
                                     </div>
                                 <%})}%> 
                     </div>
@@ -39,7 +39,7 @@
                         <div class="py-3 border-top">
                             <div class=" row justify-content-around my-2">
                                 <div class="col-md-8  col-6">
-                                    <h6 class="price">Sub-Total</h6>
+                                    <h6 class="price">Subtotal</h6>
                                     <%=totalprice%>
                                 </div>
                                 <div class="col-md-2 col-4">
@@ -48,7 +48,7 @@
                             </div>
                            
                             <div>
-                                <button class="btn my-2 w-100">Checkout</button>
+                                <button class="btn my-2 w-100">Continuar con la compra</button>
                             </div>
                         </div>
                     </div>

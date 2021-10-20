@@ -1,6 +1,6 @@
 /* login amd register pages style */
             /* COLOR PALLETE
-            #c29480 -ROSA
+            #e4a4c3 -ROSA
             #000000 -NEGRO
             #fff -BRANCO
             #c6a152 -DORADO */
@@ -101,7 +101,7 @@ a {
     top: -9px;
     font-size: 12px;
     font-weight: 300;
-    color: #c29480;
+    color: #e4a4c3;
 }
 
 /* class added by jquery for filled input*/
@@ -164,7 +164,7 @@ a {
     height: 40px;
     border-radius: 5px;
     border: 1px solid #e6e6e6;
-    background-color: #c29480;
+    background-color: #e4a4c3;
     color: #fff;
 }
 

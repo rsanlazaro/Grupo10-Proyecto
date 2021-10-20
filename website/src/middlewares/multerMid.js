@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
     fileFilter: function (req, file, callback) {
         let ext = path.extname(file.originalname);
 		let acceptedExtensions = ['.jpg', '.png', '.gif'];
-        if(!acceptedExtensions.includes(ext)) {
+        if(!acceptedExtensions.includes(ext.toLowerCase())) {
 			callback(null, false)
         }
         callback(null, true)
@@ -25,5 +25,3 @@ const storage = multer.diskStorage({
 
 
 module.exports = multerMid;
-
-
