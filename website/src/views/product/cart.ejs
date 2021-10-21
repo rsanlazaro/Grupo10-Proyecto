@@ -21,7 +21,7 @@
                                                 <img src="/assets/img/products/<%=item.productImage%>" class="w-100" alt="">
                                             </div>
                                             <div class="col-md-8 pt-4  col-sm-8">
-                                                <h3 class="price"><%=item.price%></h3>
+                                                <h3 class="price">$<%=item.price%></h3>
                                                 <p class="py-2"><%=item.description%></p>
                                                 <a href="/product/cart/delete/<%=item.productID%>" class="btn">Eliminar</a>
                                     </div>
@@ -40,7 +40,7 @@
                             <div class=" row justify-content-around my-2">
                                 <div class="col-md-8  col-6">
                                     <h6 class="price">Subtotal</h6>
-                                    <%=totalprice%>
+                                    $<%=totalprice%>
                                 </div>
                                 <div class="col-md-2 col-4">
                                     <h6 id="total"></h6>

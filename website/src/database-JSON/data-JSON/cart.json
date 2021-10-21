@@ -27,7 +27,8 @@
  {
   "cartID": 4,
   "productsID": [
-   "3"
+   "3",
+   "4"
   ],
   "userID": 6,
   "status": "enProceso"
