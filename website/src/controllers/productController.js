@@ -152,10 +152,8 @@ let productController = {
     if(products.length>1){
       products = products.split(",");
       var arrayOfIds = products.map(Number);
-      arrayOfIds.push(parseInt(req.params.id))
-
       arrayOfIds.shift()//eliminar primer elemento productID default 0
-  
+  console.log(arrayOfIds)
       products= [];
       for (const productID of arrayOfIds) {
         var items= await db.Products.findOne({where:{ id: productID}});
