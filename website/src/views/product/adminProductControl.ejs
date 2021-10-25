@@ -23,10 +23,10 @@
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="name">Nombre</label>
-                                    <input class="form-control" value= "<%= locals.oldData ? oldData.name : null %>" required="required" name="name" type="text" id="name">
-                                    <% if (locals.productErrors && productErrors.name) { %>
+                                    <input class="form-control" value= "<%= locals.oldData ? oldData.productName : null %>" required="required" name="productName" type="text" id="name">
+                                    <% if (locals.productErrors && productErrors.productName) { %>
                                         <div class="text-danger">
-                                            <%= productErrors.name.msg %> 
+                                            <%= productErrors.productName.msg %> 
                                         </div>
                                     <% } %>   
                                 </div> 
@@ -42,7 +42,7 @@
                                         <% for (const oneCategory of categories) { %>
                                             <option 
                                                 value="<%=oneCategory%>"
-                                                <%= locals.oldData && (oneCategory === oldData.category) ? 'selected' : null %> 
+                                                <%= locals.oldData && (oneCategory === oldData.product_category.category) ? 'selected' : null %> 
                                             > <%= oneCategory %> </option>
                                         <% } %>
                                     </select>
@@ -73,21 +73,21 @@
                                 </div>
                                  <div class="form-group col-md-6">
                                     <label for="product-image">Imagen</label>
-                                    <input class="form-control" name="image" type="file" id="product-image"
+                                    <input class="form-control" name="product_image" type="file" id="product-image"
                                         style="padding: 3px;">
-                                        <% if (locals.productErrors && productErrors.image) { %>
+                                        <% if (locals.productErrors && productErrors.product_image) { %>
                                             <div class="text-danger">
-                                                <%= productErrors.image.msg %> 
+                                                <%= productErrors.product_image.msg %> 
                                             </div>
                                         <% } %> 
                                 </div>
                                     <div class="form-group col-md-6">
                                     <label for="description">Descripción</label>
-                                    <input class="form-control" value= "<%= locals.oldData ? oldData.description : null %>" name="description" type="text" id="description"
+                                    <input class="form-control" value= "<%= locals.oldData ? oldData.descriptionn : null %>" name="descriptionn" type="text" id="description"
                                         required>
-                                        <% if (locals.productErrors && productErrors.description) { %>
+                                        <% if (locals.productErrors && productErrors.descriptionn) { %>
                                             <div class="text-danger">
-                                                <%= productErrors.description.msg %> 
+                                                <%= productErrors.descriptionn.msg %> 
                                             </div>
                                         <% } %>    
                                  </div>
@@ -123,12 +123,12 @@
                                             <%=item.productID %>
                                         </td>
                                         <td>
-                                            <a class="editProduct" href="/product/adminEditProduct/<%=item.productID%>">
-                                                <%=item.name %>
+                                            <a class="editProduct" href="/product/adminEditProduct/<%=item.id%>">
+                                                <%=item.productName %>
                                             </a>
                                         </td>
                                         <td>
-                                            <%=item.category %>
+                                            <%=item.product_category.category %>
                                         </td>
                                         <td>
                                             <%=item.price %>
@@ -137,9 +137,9 @@
                                             <%=item.quantity %>
                                         </td>
                                         <td>
-                                            <form action="/product/delete/<%= item.productID %>/?_method=DELETE" method="POST">
+                                            <form action="/product/delete/<%= item.id %>/?_method=DELETE" method="POST">
                                                 <input type="hidden" name="id" />
-                                                <input type="submit" id="<%= item.productID %>" value="Eliminar"/>
+                                                <input type="submit" id="<%= item.id %>" value="Eliminar"/>
                                                 </form>
                                         </td>
                                     </tr>

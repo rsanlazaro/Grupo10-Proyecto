@@ -62,9 +62,9 @@
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-product mb-60">
                             <div class="product-img">
-                                <img src="/assets/img/products/<%=item.productImage%>" alt=""  width="250" height="250">
+                                <img src="/assets/img/products/<%=item.product_image%>" alt=""  width="250" height="250">
                                 <div class="new-product">
-                                    <span><%=item.category%></span>
+                                    <span><%=item.product_category.category%></span>
                                 </div>
                             </div>
                             <div class="product-caption">
@@ -75,7 +75,7 @@
                                     <i class="far fa-star low-star"></i>
                                     <i class="far fa-star low-star"></i>
                                 </div>
-                                <h4><a href="/product/productDetails/<%=item.productID%>" id="<%=item.productID%>" class='details'><%=item.name%></h4>
+                                <h4><a href="/product/productDetails/<%=item.id%>" id="<%=item.id%>" class='details'><%=item.productName%></h4>
                                 <div class="price">
                                     <ul>
                                         <li><%=item.price%></li>

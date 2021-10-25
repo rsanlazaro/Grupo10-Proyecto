@@ -1,10 +1,12 @@
-module.exports = {
+module.exports = 
+{
   "development": {
     "username": "root",
     "password": "1234",
     "database": "structure",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port": 3306
   },
   "test": {
     "username": "root",
@@ -20,4 +22,4 @@ module.exports = {
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
-};
+}

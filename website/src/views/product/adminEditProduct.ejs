@@ -20,30 +20,30 @@
         <section class="profile admin-product pt-40" style="background-color: #fbfbfb; padding-bottom: 40px;">
             <div class="container">
                 <div class="edit-Image">
-                    <img class="center-edit" src="/assets/img/products/<%=item.productImage%>" alt="">
+                    <img class="center-edit" src="/assets/img/products/<%=item.product_image%>" alt="">
                 </div>
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title mb-0"><i class="fas fa-tag"></i> Editar información</h5>
                     </div>
                     <div class="card-body py-4">
-                        <form action="/product/update/<%= item.productID %>/?_method=PUT" method="POST" enctype="multipart/form-data">
+                        <form action="/product/update/<%= item.id %>/?_method=PUT" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="name">Nombre</label>
-                                    <input class="form-control" required="required" name="name" type="text" id="name" value= "<%= item.name %>"  >
+                                    <input class="form-control" required="required" name="productName" type="text" id="name" value= "<%= item.productName %>"  >
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="category">Categoria</label>
                                     <select id="category" name="category" required>
                                    <option value="">Selecciona una categoría</option>
                                     <% 
-                                        let categories = ['tazas', 'termos', 'gorrras', 'playeras', 'llaveros', 'rompecabezas', 'especiales'];
+                                        let categories = ['tazas', 'termos', 'gorras', 'playeras', 'llaveros', 'rompecabezas', 'especiales'];
                                     %>
                                     <% for (const oneCategory of categories) { %>
                                         <option 
                                             value="<%=oneCategory%>"
-                                            <%= (oneCategory === item.category) ? 'selected' : null %> 
+                                            <%= (oneCategory === item.product_category.category) ? 'selected' : null %> 
                                         > <%= oneCategory %> </option>
                                     <% } %>
                                 </select>
@@ -59,13 +59,13 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="product-image">Imagen</label>
-                                    <input class="form-control" value="/assets/img/products/<%=item.productImage%>" name="image" type="file" id="product-image"
+                                    <input class="form-control" value="/assets/img/products/<%=item.product_image%>" name="product_image" type="file" id="product-image"
                                         style="padding: 3px;">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="description">Descripción</label>
-                                    <input class="form-control" name="description" type="text" id="description"
-                                        required value="<%= item.description %>">
+                                    <input class="form-control" name="descriptionn" type="text" id="description"
+                                        required value="<%= item.descriptionn %>">
                                 </div>
                             </div>
                             <input class=" form-comtrol btn btn-primary profile-submit" type="submit" value="Guardar cambios">

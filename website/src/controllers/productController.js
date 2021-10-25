@@ -1,157 +1,260 @@
 const { validationResult } = require("express-validator");
+let db = require("../database/models");
 const fs = require('fs');
 const path = require('path');
-
-const Product = require('../database-JSON/Modelos-JSON/Product.js')
-const Cart = require('../database-JSON/Modelos-JSON/Cart.js')
+const { Op } = require('sequelize');
+const sequelize = db.sequelize;
 
 
 let productController = {
     p_productList: (req,res)=>{
-       return res.render('product/productList',{ products: Product.getData()})
-    },
+        db.Products.findAll({include: 
+          [{association: "product_category"}]}).then(products => {
+        return res.render('product/productList', { products: products})
+    })
+  },
     adminProductControl: (req,res)=>{
-       return res.render('product/adminProductControl', { items: Product.getData()})
+       db.Products.findAll({include: 
+        [{association: "product_category"}]}).then(products => {
+      return res.render('product/adminProductControl', { items: products})
+      })
      },
-    productStore: (req,res)=>{
+    
+     productStore: async (req,res)=>{
 
     const productValidation = validationResult(req);
 
     if(productValidation.errors.length>0){
-       return  res.render('product/adminProductControl', {
-         productErrors: productValidation.mapped(),
-         oldData: req.body,
-         items: Product.getData()
-      });
+     
+      await db.Products.findAll({include: 
+        [{association: "product_category"}]}).then(products => {
+        return res.render('product/adminProductControl', { 
+          productErrors: productValidation.mapped(),
+          oldData: req.body,      
+          items: products})
+      })
     }
-   
-    let productToCreate = {
-       name: req.body.name,
-       category: req.body.category,
+    
+    let categories = ['tazas', 'termos', 'gorras', 'playeras', 'llaveros', 'rompecabezas', 'especiales'];
+    let category_id = categories.indexOf(req.body.category)+1
+
+     await db.Products.create({
+       productName: req.body.productName,
+       category_id: category_id,
        price: req.body.price,
        quantity: req.body.quantity,
-       description: req.body.description,
-       productImage: req.file.filename
-    }
-       let productCreated = Product.create(productToCreate);
-       return  res.render('product/adminProductControl', {
-         oldData: req.body,
-         msg: true,
-         items: Product.getData()
-       });
-  },
-  adminEditproduct: (req,res)=>{
-      res.render('product/adminEditProduct',{item: Product.findByPk(req.params.productID)});
-  },
-  UpdateAdminEditproduct: (req,res)=>{
+       descriptionn: req.body.descriptionn,
+       product_image: req.file.filename
+      })
    
+      await db.Products.findAll({include: 
+        [{association: "product_category"}]}).then(products => {
+        return res.render('product/adminProductControl', { 
+          oldData: req.body,
+          msg: true,
+          items: products})
+      })
+  },
+  
+  adminEditproduct: (req,res)=>{
+      db.Products.findOne({
+      where: { id: req.params.id },
+      include: [{association: "product_category"}]
+    }).then(item=>{
+      return res.render('product/adminEditProduct',{item: item})
+    })
+
+  },
+  UpdateAdminEditproduct: async (req,res)=>{
+
     const productValidation = validationResult(req);
 
     if(productValidation.errors.length>0){
-       return  res.render('product/adminProductControl', {
-         productErrors: productValidation.mapped(),
-         oldData: req.body,
-         items: Product.getData()
-      });
-    }
      
-    Product.update(
-      {
-        productID: parseInt(req.params.productID),
-        name: req.body.name,
-        category: req.body.category,
-        price: req.body.price,
-        quantity: req.body.quantity,
-        description: req.body.description,
-        productImage: req.file.filename
-     }
-);
+      await db.Products.findAll({include: 
+        [{association: "product_category"}]}).then(products => {
+        return res.render('product/adminProductControl', { 
+          productErrors: productValidation.mapped(),
+          oldData: req.body,      
+          items: products})
+      })
+    }
+    let categories = ['tazas', 'termos', 'gorras', 'playeras', 'llaveros', 'rompecabezas', 'especiales'];
+    let category_id = categories.indexOf(req.body.category)+1
 
-     return res.render('product/adminProductControl', {
-      oldData: req.body,
-      msg: true,
-      items:  Product.getData()
-    });
+
+    await db.Products.update({
+			 productName: req.body.productName,
+       category_id: category_id,
+       price: req.body.price,
+       quantity: req.body.quantity,
+       descriptionn: req.body.descriptionn,
+       product_image: req.file.filename
+      },{
+		   where: {id: req.params.id} 
+	   })
+     
+    
+     await db.Products.findAll({include: 
+      [{association: "product_category"}]}).then(products => {
+      return res.render('product/adminProductControl', { 
+        oldData: req.body,
+        msg: true,
+        items: products})
+    })
   },
   
-
-  deleteProduct: (req,res)=>{  
-    fs.unlink(path.resolve('../public/assets/img/products/'+Product.findByPk(req.params.productID).productImage), (err) => {
+  deleteProduct: async(req,res)=>{  
+    let product = await db.Products.findOne({
+      where: { id: req.params.id },
+      include: [{association: "product_category"}]
+    })
+    
+    fs.unlink(path.resolve('../public/assets/img/products/'+product.dataValues.product_image), (err) => {
       if (err) {
           console.log("failed to delete local image:"+ err);
       } else {
           console.log('successfully deleted local image');  }
       });
-
-      Product.delete(parseInt(req.params.productID))
-      return res.render('product/adminProductControl', {
-      items:  Product.getData()
-    });
-  },
-  productDetails: (req,res)=>{
-    return res.render('product/productDetails',{item: Product.findByPk(req.params.productID)})
-  },
-  cartView: (req,res)=>{
-    let carrito = Cart.findByField("cartID", parseInt(req.params.cartID))
-    let products= []  
-  
-    if(carrito == undefined){
-         return res.render('product/cart',{ products: products, 
-         totalprice:  0 })
-
-       }else if(carrito.status == "enProceso"){
-         carrito.productsID.forEach(productID=>{
-         products.push(Product.findByPk(productID))})
-         return res.render('product/cart',{ products: products, 
-         totalprice: products.map(product => parseInt(product.price)).reduce((a,b)=>a+b)
+     
+      await db.Products.destroy({
+        where: { id: req.params.id }
       })
-    }   
+     
+      await db.Products.findAll({include: 
+        [{association: "product_category"}]}).then(products => {
+        return res.render('product/adminProductControl', { items: products})
+      })
+    
   },
 
-  addtoCart: (req,res)=>{
-    let carrito = Cart.findByField("userID", req.session.userLogged.id)
-  
-    if(carrito == undefined){
-        carrito = Cart.create({
-        productsID: [],
-        userID: req.session.userLogged.id,
-        status: "enProceso" });
-    }
-    carrito.productsID.push(req.params.productID)
-    Cart.update(carrito)
-
-    let products = [] 
+  productDetails: (req,res)=>{
+    db.Products.findOne({
+      where: { id: req.params.id },
+      include: [{association: "product_category"}]
+    }).then(item=>{
+       return res.render('product/productDetails',{item: item})
+    })
     
-    if(carrito.status == "enProceso"){
-        carrito.productsID.forEach(productID=>{
-        products.push(Product.findByPk(productID))})
-        return res.render('product/cart',{ products: products, 
-           totalprice: products.map(product => parseInt(product.price)).reduce((a,b)=>a+b),
-           itemsCount: carrito.productsID.length //se actualiza
-        })
-      }   
+  },
+
+  cartView: async(req,res)=>{
+
+    let carrito = await  db.Users.findAll({
+      where: { id: req.session.userLogged.id},
+      include: [{association: "user_carritos"},
+                {association: "user_user_carts", attributes: ['products_id', 'cart_status'], where:{cart_status: "enproceso"}}]
+    }) 
+    let indice = carrito[0].dataValues.user_user_carts[0].dataValues.products_id
+    
+    let products = carrito[0].dataValues.user_carritos[indice-1].dataValues.product_carts_id
+    
+    if(products.length>1){
+      products = products.split(",");
+      var arrayOfIds = products.map(Number);
+      arrayOfIds.push(parseInt(req.params.id))
+
+      arrayOfIds.shift()//eliminar primer elemento productID default 0
+  
+      products= [];
+      for (const productID of arrayOfIds) {
+        var items= await db.Products.findOne({where:{ id: productID}});
+        products.push(items.dataValues)
+      }
+
+      return res.render('product/cart',{ products: products, 
+       totalprice:'$'+ String(products.map(product => parseInt(product.price)).reduce((a,b)=>a+b)),
+       itemsCount: arrayOfIds.length //se actualiza
+       })
+     }else{
+      return res.render('product/cart',{ products: [], 
+        totalprice: parseInt(products) })
+    }
+  },
+
+  addtoCart: async (req,res)=>{
+    
+    let carrito = await  db.Users.findAll({
+      where: { id: req.session.userLogged.id},
+      include: [{association: "user_carritos"},
+                {association: "user_user_carts", attributes: ['products_id', 'cart_status'], where:{cart_status: "enproceso"}}]
+    }) 
+    let indice = carrito[0].dataValues.user_user_carts[0].dataValues.products_id
+
+    let products = carrito[0].dataValues.user_carritos[indice-1].dataValues.product_carts_id
+     
+    await db.Carts.update({
+      product_carts_id : (products + ',' + String(req.params.id))
+     },{
+      where: {id: indice} 
+    })
+      
+    if(products.length>1){
+      products = products.split(",");
+      var arrayOfIds = products.map(Number);
+      arrayOfIds.push(parseInt(req.params.id))
+    }else{
+      var arrayOfIds = [parseInt(products) , parseInt(req.params.id)]
+    }
+   
+  arrayOfIds.shift()
+  
+products= [];
+for (const productID of arrayOfIds) {
+   var items= await db.Products.findOne({where:{ id: productID}});
+   products.push(items.dataValues)
+}
+
+return res.render('product/cart',{ products: products, 
+  totalprice:'$'+ String(products.map(product => parseInt(product.price)).reduce((a,b)=>a+b)),
+  itemsCount: arrayOfIds.length //se actualiza
+})
+
     },
   
-    sacarItem:(req,res)=>{
-    let carrito = Cart.findByField("userID", req.session.userLogged.id)
-    index = carrito.productsID.findIndex(element => element == parseInt(req.params.productID))
-    //si son muchos con ese index elimina el primero
+    sacarItem:async (req,res)=>{
+      let carrito = await db.Users.findAll({
+        where: { id: req.session.userLogged.id},
+        include: [{association: "user_carritos"},
+                  {association: "user_user_carts", attributes: ['products_id', 'cart_status'], where:{cart_status: "enproceso"}}]
+      }) 
+      let indice = carrito[0].dataValues.user_user_carts[0].dataValues.products_id
+  
+      let products = carrito[0].dataValues.user_carritos[indice-1].dataValues.product_carts_id
+    
+      if(products.length>1){//obtengo los productos ID sin agregar otro ID 
+        products = products.split(",");
+        var arrayOfIds = products.map(Number); 
+      }else{
+        var arrayOfIds = [parseInt(products)] 
+      }
+    
+    index = arrayOfIds.findIndex(element => element == parseInt(req.params.id))
+    //si son muchos con ese index elimina el primero elemento igual al productID
     if (index > -1) {
-     carrito.productsID.splice(index, 1);
+     arrayOfIds.splice(index, 1);
     }
-    Cart.update(carrito)
-    let products = [] 
+    
+    await db.Carts.update({
+      product_carts_id : String(arrayOfIds)
+     },{
+      where: {id: indice} 
+    })
+    arrayOfIds.shift() //eliminar el primer productID default O 
+    products= [];
+    
+    for (const productID of arrayOfIds) {
+       var items= await db.Products.findOne({where:{ id: productID}});
+       products.push(items.dataValues)
+    }
 
-    if(carrito.status == "enProceso"){
-     carrito.productsID.forEach(productID=>{
-     products.push(Product.findByPk(productID))})
-      return res.render('product/cart',{ products: products, 
-        totalprice: products.map(product => parseInt(product.price)).reduce((a,b)=>a+b),
-        itemsCount: carrito.productsID.length //se actualiza
+    return res.render('product/cart',{ products: products, 
+      totalprice:'$'+ String(products.map(product => parseInt(product.price)).reduce((a,b)=>a+b)),
+      itemsCount: arrayOfIds.length //se actualiza
       })
-    }   
   }
 }
 
 module.exports = productController;
+
 
