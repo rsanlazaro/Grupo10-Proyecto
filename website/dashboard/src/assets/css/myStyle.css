@@ -1,0 +1,27 @@
+.logo-dash{
+    width: 80%;
+}
+
+.center-element{
+    margin: auto;
+}
+
+.sidebar-logo{
+    margin: auto;
+}
+
+.logo-img{
+    height: inherit;
+}
+
+.padding-r{
+    padding-right: 10px;
+}
+
+.bg-pink {
+    background-color: #e4a4c3!important;
+}
+
+.text-color{
+    color: #e4a4c3!important;
+}

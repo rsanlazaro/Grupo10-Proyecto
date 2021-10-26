@@ -26,7 +26,7 @@ router.post('/register', validRegMid, userController.regStore);
 router.get('/profile/:id', authMid, userController.profile);
 
 //------------------- Editar perfil de usuario ------------------------
-router.put('/profile/actualizar/:id', multerMid.single('image'), validRegMid, userController.updateProfile)
+router.put('/profile/actualizar/:id', multerMid.single('user_image'), validRegMid, userController.updateProfile)
 
 //------------- Cierra sesión ---------------
 router.get('/logout', userController.logout);

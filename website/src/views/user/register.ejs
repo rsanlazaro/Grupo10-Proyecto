@@ -38,22 +38,22 @@
                     <%}%>
                     <%if(locals.errors && errors.email_2) { %>
                         <div class="alert alert-danger" role="alert">
-                          <%= errors.email_2 %>
+                          <%= errors.email_2.msg %>
                          </div>
                          <%}%>
                             <form action="/user/register" method = "POST">
                                         <div class="input-group mb-3">
-                                            <input type="text" name="name" class="form-control" id="name"
-                                                value="<%= locals.oldData ? oldData.name : null %>" required>
+                                            <input type="text" name="userName" class="form-control" id="name"
+                                                value="<%= locals.oldData ? oldData.userName : null %>" required>
                                             <label for="name">Nombre</label>
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-user"></span>
                                                 </div>
                                             </div>
-                                            <% if (locals.errors && errors.name) { %>
+                                            <% if (locals.errors && errors.userName) { %>
                                                 <div class="text-danger">
-                                                    <%= errors.name.msg %> 
+                                                    <%= errors.userName.msg %> 
                                                 </div>
                                             <% } %>    
                                         </div>
@@ -73,7 +73,7 @@
                                                     <% } %>    
                                                 </div>
                                                         <div class="input-group mb-3">
-                                                            <input type="password" name="password" class="form-control"
+                                                            <input type="password" name="passwordd" class="form-control"
                                                                 id="password" value="" required>
                                                             <label for="password">Contraseña</label>
                                                             <div class="input-group-append">
@@ -81,9 +81,9 @@
                                                                     <span class="fas fa-lock"></span>
                                                                 </div>
                                                             </div>
-                                                            <% if (locals.errors && errors.password) { %>
+                                                            <% if (locals.errors && errors.passwordd) { %>
                                                                 <div class="text-danger">
-                                                                    <%= errors.password.msg %> 
+                                                                    <%= errors.passwordd.msg %> 
                                                                 </div>
                                                             <% } %>   
                                                         </div>                                            

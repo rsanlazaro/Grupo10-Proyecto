@@ -39,19 +39,19 @@
                         <form action="/user/profile/actualizar/<%= locals.userLogged.id %>/?_method=PUT" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-4 text-center">
-                                    <% if (locals.errors && errors.image) { %>
+                                    <% if (locals.errors && errors.user_image) { %>
                                         <div class="text-danger">
-                                            <%= errors.image.msg %> 
+                                            <%= errors.user_image.msg %> 
                                         </div>
                                     <% } %> 
                                     <div class="avatar-upload">
                                         <div class="avatar-edit">
                                             <input type="file" id="imageUpload"
-                                             name="image"
-                                             <%if(user.imagen == null){%>
+                                             name="user_image"
+                                             <%if(user.user_image == null){%>
                                                 src= "/assets/img/hero/avatar5.png"
                                                 <%}else{%>  
-                                                    src="/assets/img/profile/<%=user.imagen%>"
+                                                    src="/assets/img/profile/<%=user.user_image%>"
                                                 <%}%>
                                              alt="" />
                                             <label for="imageUpload">
@@ -62,10 +62,10 @@
                                         <div class="avatar-preview">
                                             <img class="myImg" 
                                              id="imagePreview"
-                                                <%if(user.imagen == null){%>
+                                                <%if(user.user_image == null){%>
                                                 src= "/assets/img/hero/avatar5.png"
                                                 <%}else{%>  
-                                                    src="/assets/img/profile/<%=user.imagen%>"
+                                                    src="/assets/img/profile/<%=user.user_image%>"
                                                 <%}%>
                                              alt="" />
                                         </div>
@@ -75,12 +75,12 @@
                                 <div class="col-md-8 pt-4">
                                     <div class="form-group">
                                         <label for="name">Nombre</label>
-                                        <input class="form-control" required="required" name="name" type="text" id="name" 
-                                        value= "<%= user.name %>">
+                                        <input class="form-control" required="required" name="userName" type="text" id="name" 
+                                        value= "<%= user.userName %>">
                                     </div>
-                                    <% if (locals.errors && errors.name) { %>
+                                    <% if (locals.errors && errors.userName) { %>
                                         <div class="text-danger">
-                                            <%= errors.name.msg %> 
+                                            <%= errors.userName.msg %> 
                                         </div>
                                     <% } %>  
                                     <div class="form-group">
@@ -94,17 +94,17 @@
                                     <% } %>  
                                     <div class="form-group">
                                         <label for="password">Password</label>
-                                        <input class="form-control" required="required" name="password" type="password" 
-                                         id="password" value= "<%= user.password %>">
-                                         <% if (locals.errors && errors.password) { %>
+                                        <input class="form-control" required="required" name="passwordd" type="password" 
+                                         id="password" value= "<%= user.passwordd %>">
+                                         <% if (locals.errors && errors.passwordd) { %>
                                             <div class="text-danger">
-                                                <%= errors.password.msg %> 
+                                                <%= errors.passwordd.msg %> 
                                             </div>
                                         <% } %>  
                                     <div class="form-group">
                                         <label for="password_confirmation">Confirm Password</label>
                                         <input class="form-control" required="required" name="password_confirmation" 
-                                        type="password" id="password_confirmation" value= "<%= user.password %>">
+                                        type="password" id="password_confirmation" value= "<%= user.passwordd %>">
                                         <% if (locals.errors && errors.password_confirmation) { %>
                                             <div class="text-danger">
                                                 <%= errors.password_confirmation.msg %> 

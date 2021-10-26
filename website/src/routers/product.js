@@ -15,27 +15,27 @@ router.get('/productList', productController.p_productList)
 router.get('/adminProductControl', authMid, productController.adminProductControl)
 
 //---------se procesa el registro y se guarda el producto registrado-------
-router.post('/newProduct', multerMid.single('image'), validProductMid, productController.productStore)
+router.post('/newProduct', multerMid.single('product_image'), validProductMid, productController.productStore)
 
 //---------para ver detalles y formulario para editar un producto----------
-router.get('/adminEditProduct/:productID', productController.adminEditproduct);
+router.get('/adminEditProduct/:id', productController.adminEditproduct);
 
 //------------Guardar cambios de los detalles del producto--------------------
-router.put('/update/:productID', multerMid.single('image'), validProductMid, productController.UpdateAdminEditproduct);
+router.put('/update/:id', multerMid.single('product_image'), validProductMid, productController.UpdateAdminEditproduct);
 
 //------------Para eliminar un producto--------------------
-router.delete('/delete/:productID', productController.deleteProduct);
+router.delete('/delete/:id', productController.deleteProduct);
 
 //------------Para ver detalles de producto como cliente--------------------
-router.get('/productDetails/:productID', productController.productDetails);
+router.get('/productDetails/:id', productController.productDetails);
 
 //------------agregar producto a carrito--------------------
-router.get('/addtocart/:productID', authMid, productController.addtoCart);
+router.get('/addtocart/:id', authMid, productController.addtoCart);
 
 //------------vista de carrito--------------------
-router.get('/cart/:cartID', authMid, productController.cartView);
+router.get('/cart/:id', authMid, productController.cartView);
 
 //------------eliminar producto del carrito--------------------
-router.get('/cart/delete/:productID', productController.sacarItem);
+router.get('/cart/delete/:id', productController.sacarItem);
 
 module.exports = router;

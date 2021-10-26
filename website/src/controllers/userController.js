@@ -1,7 +1,7 @@
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require("express-validator");
+let db = require("../database/models");
 
-const User = require('../database-JSON/Modelos-JSON/User.js')
 
 let userController = {
     login: (req, res) => {
@@ -10,16 +10,18 @@ let userController = {
     register: (req, res) => {
       return res.render('user/register');
     },
-    regStore: (req, res) => {
+    regStore: async(req, res) => {
+		
         const resultValidation = validationResult(req);
-        
+
 		if(((resultValidation.errors.length)-1)>0){ //-1 por el body('image') 
 			return  res.render('user/register', {
              errors: resultValidation.mapped(),
              oldData: req.body,
            });
        }
-        if(req.body.password != req.body.password_confirmation) {
+
+        if(req.body.passwordd != req.body.password_confirmation) {
             return  res.render('user/register', {
                 errors: {
 					password_confirmation_2: {
@@ -29,10 +31,15 @@ let userController = {
 				oldData: req.body
 			});
 		}
-        let userInDB = User.findByField('email', req.body.email);
 
+        await db.Users.findOne({
+            where: {
+                email: req.body.email
+			 }
+        }).then((userInDB) => {
+		 
 		if (userInDB) {
-			return res.render('user/register', {
+			 return res.render('user/register', {
 				errors: {
 					email_2: {
 						msg: 'Este email ya está registrado'
@@ -40,50 +47,75 @@ let userController = {
 				},
 				oldData: req.body
 			});
-		}
+	    }
+	})
+	        
+			 let usuario = await db.Users.create({
+				userName: req.body.userName,
+				id_rol: req.body.email == "aleguamen_@hotmail.com"|| req.body.email == "rsanlazaro@hotmail.com"? 1: 2,
+				email: req.body.email,
+				passwordd: bcryptjs.hashSync(req.body.passwordd, 10),
+				user_image: null
+			  })
+			  
 
-		let userToCreate = {
-			name: req.body.name,
-            email: req.body.email,
-			password: bcryptjs.hashSync(req.body.password, 10)
-		}
-        let userCreated = User.create(userToCreate);
-        
-            let userToLogin = User.findByField('email', req.body.email);
-            delete userToLogin.password;
-            req.session.userLogged = userToLogin;
-            if(req.body.remember_user) {
-              res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 }) 
-            }
-           return res.redirect('/user/profile', {
-			    user: req.session.userLogged});
+			 await db.Carts.create({product_carts_id: 0},{
+				where: {id: usuario.dataValues.id} 
+			})
+			
+			 await db.User_carts.create({
+				user_id: usuario.dataValues.id,
+				products_id: usuario.dataValues.id,
+				cart_status: "enproceso"
+			  })
 
+			  
+			  if(usuario) {
+				res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 }) 
+			 }
+			 
+			 
+			   
+			   return res.redirect('/');
+		  
     },
 
-    profile: (req, res) =>{
-        return res.render('user/profile',{
-		user: req.session.userLogged
+    profile: async (req, res) =>{
+		
+		delete req.session.userLogged.passwordd
+        
+		return res.render('user/profile',{
+		user: req.session.userLogged,
 		});
+	
     },
 
     getLogin: (req, res) =>{
-        let userToLogin = User.findByField('email', req.body.email);
 		
+		db.Users.findOne({
+               where: {
+                   email: req.body.email
+            }
+        }).then((userToLogin) => {
+			
 		if(userToLogin) {
             //para los usuarios administradores
-			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
-             
+			
+			let isOkThePassword = bcryptjs.compareSync(req.body.passwordd, userToLogin.passwordd);
+            
+ 
 			if (isOkThePassword) {
 				
-				delete userToLogin.password;
-				req.session.userLogged = userToLogin;
-
-				if(req.body.remember_user) {
+				delete userToLogin.passwordd;
+				req.session.userLogged = userToLogin
+				
+				if(req.body.rememberme) {
 					 res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 }) 
 				}
 
-				return res.redirect('/');
-			} 
+			      return res.redirect('/');
+			  }
+			
 			return res.render('user/login', {
 				errors: {
 					email: {
@@ -91,7 +123,7 @@ let userController = {
 					}
 				}
 			});
-		}
+	     }
 
 		return res.render('user/login', {
 			errors: {
@@ -100,13 +132,16 @@ let userController = {
 				}
 			}
 		});
+	  });
 	},
     logout: (req, res) => {
 		res.clearCookie('userEmail');
 		req.session.destroy();
 		return res.redirect('/');
 	},
-	updateProfile: (req, res) => {
+
+	updateProfile: async (req, res) => {
+         
 		const resultValidation = validationResult(req);
 
 		if(resultValidation.errors.length>0){ 
@@ -117,7 +152,7 @@ let userController = {
            });
        }
 	 
-	   if(req.body.password != req.body.password_confirmation) {
+	   if(req.body.passwordd != req.body.password_confirmation) {
 		return res.render('user/profile', {
 			  errors: {
 				password_confirmation_2: {
@@ -129,16 +164,24 @@ let userController = {
 		});
 	}
 	
-	User.update(
-		{
-		    id: parseInt(req.params.id),
-		    name: req.body.name,
-            email: req.body.email,
-			password: bcryptjs.hashSync(req.body.password, 10),
-			role: req.session.userLogged.role,
-			imagen: req.file == undefined? User.findByField('email', req.body.email).imagen : req.file.filename
+		 await db.Users.update({
+			userName: req.body.userName,
+			id_rol: req.body.email == "aleguamen_@hotmail.com"|| req.body.email == "rsanlazaro@hotmail.com"? 1: 2,
+			email: req.body.email,
+			passwordd: bcryptjs.hashSync(req.body.passwordd, 10),
+			user_image: req.file == undefined? null : req.file.filename
+	   },{
+		   where: {id: req.params.id} 
 	   })
-	   
+
+     
+	   var usuario =await db.Users.findOne({
+		    where: {
+			email: req.body.email
+		 }
+	  })
+	    req.session.userLogged.user_image = usuario.user_image
+		
 	    return res.render('user/profile',{
 		user: req.session.userLogged,
 		msg: true

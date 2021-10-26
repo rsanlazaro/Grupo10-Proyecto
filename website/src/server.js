@@ -14,7 +14,7 @@ const session = require('express-session');
 
 //--- Init APP
 const app = express();
-const port = 3000;
+const port = 3001;
 
 //-----------SE IMPORTAN LAS RUTAS --------------------
 const routersMain = require('./routers/main');

@@ -4,19 +4,20 @@ const path = require('path');
 
 //------------- Validations-------------------
 const validRegMid = [
-    body("name")
+    body("userName")
         .notEmpty().withMessage("Escribe tu nombre").bail() //bail no siga con las validaciones
         .isLength({ min: 3}).withMessage("La longitud mínima es de 3 caracteres"),
     body("email")
         .notEmpty().withMessage("Escribe tu correo electrónico").bail()
         .isEmail().withMessage("El formato debe ser válido"),     
-    body("password")
-        .notEmpty().withMessage("Escribe tu password").bail()
+    body("passwordd")
+        .notEmpty().withMessage("Escribe tu contraseña").bail()
         .isLength({ min: 8}).withMessage("La longitud mínima es de 8 caracteres"),
     body("password_confirmation")
-        .notEmpty().withMessage("Escribe tu password").bail()
+        .notEmpty().withMessage("Escribe tu contraseña").bail()
         .isLength({ min: 8}).withMessage("La longitud mínima es de 8 caracteres"),
-    body('image').custom((value, { req }) => { 
+    body('user_image').custom((value, { req }) => { 
+        
         let file =  req.file;
         let acceptedExtensions = ['.jpg', '.png', '.gif'];
         
@@ -28,7 +29,6 @@ const validRegMid = [
                 throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
             }
         }
-
         return true;
     })
 ];

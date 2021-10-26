@@ -24,15 +24,15 @@
                         <div class="row">
                             <div class="col-md-5 p-5">
                                 <div id="ex1">
-                                    <img class="w-100" src="/assets/img/products/<%=item.productImage%>" alt="">
+                                    <img class="w-100" src="/assets/img/products/<%=item.product_image%>" alt="">
                                 </div>
                             </div>
                             <div class="col-md-7 p-5">
                                 <h3>
-                                    <%=item.name%>
+                                    <%=item.productName%>
                                 </h3>
                                 <p class="mb-2 text-muted text-uppercase small">
-                                    <%=item.category%>
+                                    <%=item.product_category.category%>
                                 </p>
                                 <div class="product-caption">
                                     <!-- <div class="product-ratting">
@@ -57,7 +57,7 @@
                                 <div class="mt-4">
                                     <a class="btn btn-primary mr-3" id="addBTN"
                                     <%if(!locals.isAdmin){%>
-                                        href="/product/addtocart/<%=item.productID%>"
+                                        href="/product/addtocart/<%=item.id%>"
                                         <% } else {%>
                                             href="#" 
                                             <% } %> >

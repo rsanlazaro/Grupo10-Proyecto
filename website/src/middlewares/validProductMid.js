@@ -4,7 +4,7 @@ const path = require('path');
 
 //------------- Validations-------------------
 const validProductMid = [
-    body('name')
+    body('productName')
         .notEmpty().withMessage("Escribe tu nombre").bail()
         .isLength({ min: 3}).withMessage("La longitud mínima es de 3 caracteres").bail(),
     body('category')
@@ -16,7 +16,7 @@ const validProductMid = [
     body('quantity')
         .notEmpty().withMessage('Escribe la cantidad').bail()
         .isNumeric().withMessage('Escriba un número').bail(),
-    body('image').custom((value, { req }) => {
+    body('product_image').custom((value, { req }) => {
     let file = req.file;
     let acceptedExtensions = ['.jpg', '.png', '.gif'];
 
@@ -31,7 +31,7 @@ const validProductMid = [
 
     return true;
 }),
-body('description')
+body('descriptionn')
 .notEmpty().withMessage("Escribe una descripcion").bail(),
 ];
 
