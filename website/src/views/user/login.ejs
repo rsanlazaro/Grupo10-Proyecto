@@ -20,6 +20,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/custom.css">
+    <link rel="stylesheet" href="/assets/css/styleLogin.css">
 </head>
 
 <body class="hold-transition login-page auth-background">
@@ -30,28 +31,29 @@
         <!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">Inicia Sesión</p>
-            
             <%if(locals.errors){%>
                 <div class="alert alert-danger" role="alert">
                     email o contraseña inválida
                 </div>
                 <%}%>
-
-                    <form action="/user/login" method="POST">
-
-                        <div class="input-group mb-3">
-                            <input type="email" name="email" class="form-control" id="email" autocomplete="off"
-                                value="<%= locals.oldData ? oldData.email : null %>" required>
-                            <label for="email">e-mail</label>
+                    <form action="/user/login" method="POST" id="loginForm">
+                        <div class="validateEmail validationError"></div>
+                        <div></div>
+                        <div class="input-group mb-3">   
+                            <label for="email">e-mail</label>   
+                            <input type="email" name="email" class="form-control
+                            <%= locals.errors && errors.email ? 'is-invalid' : null %>" id="email"
+                                value="<%= locals.oldData ? oldData.email : null %>" required>                                   
                             <div class="input-group-append">
                                 <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
+                                    <div class="fas fa-envelope"></div>
+                                </div>      
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" name="passwordd" class="form-control" id="password" 
-                            value="<%= locals.oldData ? oldData.passwordd : null %>" required>
+                            <div class="validatePassword validationError"></div>
+                            <input type="password" name="passwordd" class="form-control <%= locals.errors && errors.passwordd ? 'is-invalid' : null %> " id="password" 
+                             required>
                             <label for="password">Contraseña</label>
                             <div class="input-group-append">
                                 <div class="input-group-text">
@@ -103,6 +105,7 @@
             }
         });
     </script>
+    <script src="/assets/js/validationLogin.js"></script>
 </body>
 
 </html>

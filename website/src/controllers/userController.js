@@ -58,9 +58,10 @@ let userController = {
 				user_image: null
 			  })
 			  
-
+			  
 			 await db.Carts.create({product_carts_id: 0},{
 				where: {id: usuario.dataValues.id} 
+				
 			})
 			
 			 await db.User_carts.create({
@@ -68,13 +69,12 @@ let userController = {
 				products_id: usuario.dataValues.id,
 				cart_status: "enproceso"
 			  })
-
+			
 			  
 			  if(usuario) {
 				res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 }) 
 			 }
-			 
-			 
+				 
 			   
 			   return res.redirect('/');
 		  

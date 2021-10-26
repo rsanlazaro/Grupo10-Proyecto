@@ -20,6 +20,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/custom.css">
+    <link rel="stylesheet" href="/assets/css/styleRegister.css">
 </head>
 
 <body class="hold-transition login-page auth-background">
@@ -41,8 +42,9 @@
                           <%= errors.email_2.msg %>
                          </div>
                          <%}%>
-                            <form action="/user/register" method = "POST">
-                                        <div class="input-group mb-3">
+                            <form action="/user/register" method = "POST" id="formRegister">
+                                <div class="validateName validationError"></div>        
+                                       <div class="input-group mb-3">
                                             <input type="text" name="userName" class="form-control" id="name"
                                                 value="<%= locals.oldData ? oldData.userName : null %>" required>
                                             <label for="name">Nombre</label>
@@ -57,6 +59,7 @@
                                                 </div>
                                             <% } %>    
                                         </div>
+                                        <div class="validateEmail validationError"></div>
                                                 <div class="input-group mb-3">
                                                     <input type="email" name="email" class="form-control" id="email"
                                                         value="<%= locals.oldData ? oldData.email : null %>" autocomplete="off" required>
@@ -73,9 +76,11 @@
                                                     <% } %>    
                                                 </div>
                                                         <div class="input-group mb-3">
-                                                            <input type="password" name="passwordd" class="form-control"
-                                                                id="password" value="" required>
+                                                            <div class="validatePassword validationError"></div>
                                                             <label for="password">Contraseña</label>
+                                                            <input type="password" name="passwordd" id="passwordd" class="form-control"
+                                                                id="password" value="" required>
+                                                                <div class="validateEmail validationError"></div>
                                                             <div class="input-group-append">
                                                                 <div class="input-group-text">
                                                                     <span class="fas fa-lock"></span>
@@ -88,6 +93,7 @@
                                                             <% } %>   
                                                         </div>                                            
                                                                 <div class="input-group mb-3">
+                                                                    <div class="validatePassword validationError"></div>
                                                                     <input type="password" name="password_confirmation"
                                                                         class="form-control" id="password_confirmation"
                                                                         value="" required>
@@ -147,6 +153,7 @@
             }
         });
     </script>
+    <script src="/assets/js/validationRegister.js"></script>
 </body>
 
 </html>
