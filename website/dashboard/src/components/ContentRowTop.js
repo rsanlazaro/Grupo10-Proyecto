@@ -1,8 +1,6 @@
 import React from "react";
-import imagenFondo from "../assets/images/mandalorian.jpg";
 import ContentRowMovies from "./ContentRowMovies";
-import LastMovieInDb from "./LastMovieInDb";
-import GenresInDb from "./GenresInDb";
+import ProductsInDb from "./ProductsInDb";
 
 function ContentRowTop() {
   const items = [
@@ -26,36 +24,6 @@ function ContentRowTop() {
     },
   ];
 
-  const genres = [
-    {
-      name: "Acción",
-    },
-    {
-      name: "Animación",
-    },
-    {
-      name: "Aventura",
-    },
-    {
-      name: "Ciencia Ficción",
-    },
-    {
-      name: "Comedia",
-    },
-    {
-      name: "Drama",
-    },
-    {
-      name: "Fantasía",
-    },
-    {
-      name: "Infantiles",
-    },
-    {
-      name: "Musical",
-    },
-  ];
-
   const objects = [
     {
       name: "Termos",
@@ -73,12 +41,6 @@ function ContentRowTop() {
       name: "Llaveros",
     },
   ];
-
-  const lastMovie = 
-  {
-	  image: imagenFondo,
-	  title: "Star Wars - Mandalorian"
-	};
 
   return (
     <React.Fragment>
@@ -132,7 +94,7 @@ function ContentRowTop() {
                 <div className="row">
                   {objects.map((element, i) => {
                     return (
-                      <GenresInDb key={element.name + i} name={element.name} />
+                      <ProductsInDb key={element.name + i} name={element.name} />
                     );
                   })}
                 </div>

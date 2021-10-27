@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from 'prop-types';
 
 function ContentRowMovies(props) {
   
@@ -26,23 +25,6 @@ function ContentRowMovies(props) {
       </div>
     </React.Fragment>
   );
-}
-
-ContentRowMovies.defaultProps = {
-    title: "No hay título registrado",
-    amount: "No hay cantidad registrada",
-    color: "primary",
-    icon: "fa-window-close"
-}
-
-ContentRowMovies.propTypes = {
-    title: PropTypes.string.isRequired,
-    amount: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number
-      ]).isRequired,
-    icon: PropTypes.string.isRequired,
-    color: PropTypes.oneOf(['primary','success', 'warning']).isRequired
 }
 
 export default ContentRowMovies;

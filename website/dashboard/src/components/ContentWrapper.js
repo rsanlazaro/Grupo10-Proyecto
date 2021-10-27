@@ -2,7 +2,6 @@ import React from 'react';
 import TopBar from './TopBar';
 import ContentRowTop from './ContentRowTop';
 import Footer from './Footer';
-import FooterTable from './FooterTable';
 
 function ContentWrapper(){
     return (
