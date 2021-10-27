@@ -36,13 +36,13 @@
                                         name="category" 
                                         id= "category">
                                        <option value="">Selecciona una categoría</option>
+                                       
                                         <% 
                                             let categories = ['tazas', 'termos', 'gorras', 'playeras', 'llaveros', 'rompecabezas', 'especiales'];
                                         %>
                                         <% for (const oneCategory of categories) { %>
                                             <option 
                                                 value="<%=oneCategory%>"
-                                                <%= locals.oldData && (oneCategory === oldData.product_category.category) ? 'selected' : null %> 
                                             > <%= oneCategory %> </option>
                                         <% } %>
                                     </select>
@@ -120,7 +120,7 @@
                                 <% items.forEach(function(item){ %>
                                     <tr>
                                         <td>
-                                            <%=item.productID %>
+                                            <%=item.id %>
                                         </td>
                                         <td>
                                             <a class="editProduct" href="/product/adminEditProduct/<%=item.id%>">

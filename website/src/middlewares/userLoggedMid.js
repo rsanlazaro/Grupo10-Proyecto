@@ -16,7 +16,7 @@ async function userLoggedMid(req, res, next) {
 			             email:{ [Op.like] : emailInCookie}
 		             }
 	             })
-	
+				 
 		if (userFromCookie) {
 			delete userFromCookie.dataValues.passwordd;
 			req.session.userLogged = userFromCookie.dataValues;
@@ -32,10 +32,17 @@ async function userLoggedMid(req, res, next) {
 				include: [{association: "user_carritos"},
 						  {association: "user_user_carts", attributes: ['products_id', 'cart_status'], where:{cart_status: "enproceso"}}]
 			  }) 
-			  console.log(carrito);
+			  
 			  let indice = carrito[0].dataValues.user_user_carts[0].dataValues.products_id
-			  let products = carrito[0].dataValues.user_carritos[0].dataValues.product_carts_id
+			  let products=carrito[0].dataValues.user_carritos[0].product_carts_id 
+			  console.log(carrito[0].dataValues.user_carritos[0].product_carts_id)
+			  
+			  //let products = carrito[0].dataValues.user_carritos[indice-1].dataValues.product_carts_id
+			  //console.log(carrito[0].dataValues.user_carritos[indice-1])
+			  //console.log(carrito[0].dataValues.user_carritos[indice-1])
+			  
 			  res.locals.carrito= true;
+
 			  if(products.length>1){
 				products = products.split(",");
 				var arrayOfIds = products.map(Number);

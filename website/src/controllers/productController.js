@@ -147,13 +147,14 @@ let productController = {
     }) 
     let indice = carrito[0].dataValues.user_user_carts[0].dataValues.products_id
     
-    let products = carrito[0].dataValues.user_carritos[indice-1].dataValues.product_carts_id
+    let products = carrito[0].dataValues.user_carritos[0].product_carts_id 
+    //carrito[0].dataValues.user_carritos[indice-1].dataValues.product_carts_id
     
     if(products.length>1){
       products = products.split(",");
       var arrayOfIds = products.map(Number);
       arrayOfIds.shift()//eliminar primer elemento productID default 0
-  console.log(arrayOfIds)
+  
       products= [];
       for (const productID of arrayOfIds) {
         var items= await db.Products.findOne({where:{ id: productID}});
@@ -179,7 +180,7 @@ let productController = {
     }) 
     let indice = carrito[0].dataValues.user_user_carts[0].dataValues.products_id
 
-    let products = carrito[0].dataValues.user_carritos[indice-1].dataValues.product_carts_id
+    let products = carrito[0].dataValues.user_carritos[0].dataValues.product_carts_id
      
     await db.Carts.update({
       product_carts_id : (products + ',' + String(req.params.id))
